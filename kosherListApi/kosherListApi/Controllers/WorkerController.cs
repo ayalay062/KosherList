@@ -27,15 +27,31 @@ namespace kosherListApi.Controllers
             return Ok(WorkerBL.AddWorker(worker));
 
         }
+
+        [HttpPost]
+        [Route("UpdateWorkerShcedule")]
+        public IHttpActionResult UpdateWorkerShcedule(WorkerDto worker)
+        {
+            return Ok(WorkerBL.UpdateWorkerShcedule(worker));
+
+        }
+        [HttpGet]
+        [Route("GetWorkerWithScheduler/{workerCode}")]
+        public IHttpActionResult GetWorkerWithScheduler(int workerCode)
+        {
+            return Ok(WorkerBL.GetWorkerWithScheduler(workerCode));
+
+        }
+
     }
 }
 
-       
-
-        
 
 
-    //    api/store/getAllStores
+
+
+
+//    api/store/getAllStores
 
 
 

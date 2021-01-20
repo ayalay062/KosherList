@@ -1,5 +1,5 @@
-
-<router-outlet></router-outlet>
+<router-outlet>
+</router-outlet>
 <!-- export class Store
 {
     updatesId:number;
@@ -10,38 +10,48 @@
     exitingTime:Date;
     remarks:string;
 } -->
+<h1>שלום {{userCurrent.userUserName}}</h1>
 <form [formGroup]="form" (ngSubmit)="create()">
-<div>
-  hola:
-  {{user}}
-  
-</div>
-  <p>
+
+    <!-- <p>
     <mat-form-field appearance="legacy">
       <mat-label>שם משגיח</mat-label>
       <input matInput formControlName="codeWorker">    
     </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="legacy">
-      <mat-label>שם חנות</mat-label>
-      <input matInput formControlName="codeStore">      
-    </mat-form-field>
-  </p>
-  
-  <section>
-    <div class="example-button-row">
-      <button mat-button (click)="btnEntry()">כניסה</button>
-    </div><br>
-    <div >{{dateEntry |date: 'dd-MMM-yy h:mm:ss a '}}</div>
-    <div class="example-button-row">
-        <button mat-button (click)="btnExit()">יציאה</button>
-      </div><br>
-      <div>{{dateExit |date :'dd-MMM-yy h:mm:ss a '}}</div>
- 
+  </p> -->
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>שם חנות</mat-label>
+            <input matInput formControlName="codeStore">
+            <mat-error *ngIf="form.get('codeStore').errors?.required"> חובה להזין שם חנות.</mat-error>
+
+        </mat-form-field>
+    </p>
+
+    <section>
+        <div class="example-button-row">
+            <button mat-button type="button" (click)="btnEntry()">כניסה</button>
+            <p>
+                <mat-form-field appearance="legacy">
+                    <mat-label>תאריך ושעת כניסה</mat-label>
+                    <input matInput formControlName="begginingTime" type="datetime-local">
+                </mat-form-field>
+            </p>
+
+        </div><br>
+
+        <div class="example-button-row">
+            <button mat-button type="button" (click)="btnExit()">יציאה</button>
+            <mat-form-field appearance="legacy">
+                <mat-label>תאריך ושעת יציאה</mat-label>
+                <input matInput formControlName="exitingTime" type="datetime-local">
+            </mat-form-field>
+        </div><br>
+
+
     </section>
-  <br>
-<!-- <div>
+    <br>
+    <!-- <div>
   <mat-form-field appearance="fill">
     <mat-label>תאריך</mat-label>
     <input matInput [matDatepicker]="picker">
@@ -49,26 +59,18 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 </div> -->
-<p>
-    <mat-form-field appearance="legacy">
-      <mat-label>הערות</mat-label>
-      <input matInput >      
-    </mat-form-field>
-  </p>
-  <label id="example-radio-group-label">תוצאה</label>
-  <mat-radio-group
-    aria-labelledby="example-radio-group-label"
-    class="example-radio-group"
-    formControlName="remarks" name="radio">
-    <mat-radio-button class="example-radio-button" *ngFor="let test of choiceTest" [value]="test">
-      {{test}}
-    </mat-radio-button>
-  </mat-radio-group>
-  <button mat-button type="submit">סיים עדכון</button>
-  
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>הערות</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </p>
+    <label id="example-radio-group-label">תוצאה</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="remarks" name="radio">
+        <mat-radio-button class="example-radio-button" *ngFor="let test of choiceTest" [value]="test">
+            {{test}}
+        </mat-radio-button>
+    </mat-radio-group>
+    <button mat-button type="submit" [disabled]="!form.valid">סיים עדכון</button>
+
 </form>
-
-
-
-
- 

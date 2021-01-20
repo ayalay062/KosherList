@@ -33,6 +33,20 @@ namespace BLL.services
 
             }
         }
+
+        public static UsersDto Login(UsersDto user)
+        {
+            using (KosherListEntities db = new KosherListEntities())
+            {
+
+                var userLogin = db.Users_tbl.FirstOrDefault(x => x.userPassword == user.userPassword && x.userUserName == user.userUserName);
+                if (userLogin == null) return null;
+
+                return UsersConvertion.convertToDto(userLogin) ;
+
+            }
+        }
+
         public static bool UpdateUser(UsersDto user)
         {
             using (KosherListEntities db = new KosherListEntities())

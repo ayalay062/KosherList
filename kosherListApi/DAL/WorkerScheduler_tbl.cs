@@ -25,9 +25,6 @@ namespace DAL
         public Nullable<int> day6 { get; set; }
         public Nullable<int> day7 { get; set; }
     
-        public virtual WorkerScheduler_tbl WorkerScheduler_tbl1 { get; set; }
-        public virtual WorkerScheduler_tbl WorkerScheduler_tbl2 { get; set; }
-        public virtual WorkerScheduler_tbl WorkerScheduler_tbl11 { get; set; }
-        public virtual WorkerScheduler_tbl WorkerScheduler_tbl3 { get; set; }
+        public virtual Worker_tbl Worker_tbl { get; set; }
     }
 }

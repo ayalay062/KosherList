@@ -21,12 +21,40 @@ namespace BLL.services
 
             }
         }
+        public static WorkerDto GetWorkerWithScheduler(int workerCode)
+        {
+            using (KosherListEntities db = new KosherListEntities())
+            {
+
+                var worker = db.Worker_tbl.Include("WorkerScheduler_tbl").FirstOrDefault(x => x.codeWorker == workerCode);
+                return WorkerConvertion.convertToDtoWithShceduler(worker);
+
+            }
+        }
         public static bool AddWorker(WorkerDto worker)
         {
             using (KosherListEntities db = new KosherListEntities())
             {
                 var newWorker = WorkerConvertion.convertToStore(worker);
-                db.Worker_tbl.Add(newWorker);
+                for (int i = 0; i < 24; i++)
+                {
+                    newWorker.WorkerScheduler_tbl.Add(new WorkerScheduler_tbl() { hour = i });
+                }
+             
+                db.Worker_tbl.Add(newWorker);            
+                db.SaveChanges();
+                return true;
+
+            }
+        }
+
+
+        public static bool UpdateWorkerShcedule(WorkerDto worker)
+        {
+            using (KosherListEntities db = new KosherListEntities())
+            {
+                var updatedWorker = db.Worker_tbl.FirstOrDefault(x => x.codeWorker == worker.codeWorker);
+                updatedWorker.WorkerScheduler_tbl = WorkerSchedulerConvertion.convertToListWorkerScheduler(worker.WorkerScheduler_tbl);
                 db.SaveChanges();
                 return true;
 

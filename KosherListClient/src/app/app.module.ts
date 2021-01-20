@@ -20,6 +20,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { EntranceComponent } from './entrance/entrance.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { EntranceComponent } from './entrance/entrance.component';
     StoreComponent,
     TimetableComponent,
     EntranceComponent,
+    HeaderComponent,
   ],
   imports: [
     HttpClientModule,

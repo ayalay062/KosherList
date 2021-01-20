@@ -16,6 +16,6 @@ namespace DTO
         public Nullable<System.DateTime> dateStart { get; set; }
         public string email { get; set; }
         public Nullable<bool> mobility { get; set; }
-
+        public  List<WorkerSchedulerDto> WorkerScheduler_tbl { get; set; }
     }
 }

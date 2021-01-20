@@ -4,16 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="498fcb774f4d4065bcab2f7557ed0ef5" Name="Diagram1">
-        <EntityTypeShape EntityType="KosherListModel.Store_tbl" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KosherListModel.Updates_tbl" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="KosherListModel.Users_tbl" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KosherListModel.Worker_tbl" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <AssociationConnector Association="KosherListModel.FK__Updates_t__codeS__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="KosherListModel.FK__Updates_t__codeW__3F466844" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="KosherListModel.WorkerScheduler_tbl" Width="1.5" PointX="5.375" PointY="0.75" />
-        <AssociationConnector Association="KosherListModel.FK_WorkerId_Workers" />
-        <AssociationConnector Association="KosherListModel.FK_WorkerScheduler_tbl_WorkerScheduler_tbl" />
+      <Diagram DiagramId="07243802a08d4dd1b0c1c9640b623425" Name="Diagram1">
+        <EntityTypeShape EntityType="KosherListModel.Store_tbl" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KosherListModel.Updates_tbl" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KosherListModel.Users_tbl" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KosherListModel.Worker_tbl" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KosherListModel.WorkerScheduler_tbl" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="KosherListModel.FK__Updates_t__codeS__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="KosherListModel.FK__Updates_t__codeW__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="KosherListModel.fk_worker_id" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

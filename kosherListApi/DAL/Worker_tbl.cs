@@ -18,6 +18,7 @@ namespace DAL
         public Worker_tbl()
         {
             this.Updates_tbl = new HashSet<Updates_tbl>();
+            this.WorkerScheduler_tbl = new HashSet<WorkerScheduler_tbl>();
         }
     
         public int codeWorker { get; set; }
@@ -31,5 +32,7 @@ namespace DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Updates_tbl> Updates_tbl { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WorkerScheduler_tbl> WorkerScheduler_tbl { get; set; }
     }
 }

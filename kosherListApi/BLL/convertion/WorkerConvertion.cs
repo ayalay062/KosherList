@@ -23,6 +23,21 @@ namespace BLL.convertion
             newWorker.telWorker = w.telWorker;
             return newWorker;
         }
+        public static WorkerDto convertToDtoWithShceduler(Worker_tbl w)
+        {
+            WorkerDto newWorker = new WorkerDto();
+            newWorker.addressWorker = w.addressWorker;
+            newWorker.codeWorker = w.codeWorker;
+            newWorker.dateStart = w.dateStart;
+            newWorker.email = w.email;
+            newWorker.experience = w.experience;
+            newWorker.mobility = w.mobility;
+            newWorker.nameWorker = w.nameWorker;
+            newWorker.telWorker = w.telWorker;
+            newWorker.WorkerScheduler_tbl = w.WorkerScheduler_tbl==null? null: WorkerSchedulerConvertion.convertToListDto(w.WorkerScheduler_tbl.ToList());
+            return newWorker;
+        }
+        
         public static List<WorkerDto> convertToListDto(List<Worker_tbl> w)
         {
             List<WorkerDto> newWorker = new List<WorkerDto>();

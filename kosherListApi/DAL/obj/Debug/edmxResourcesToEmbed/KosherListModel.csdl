@@ -10,7 +10,7 @@
     <Property Name="clasificationStore" Type="Int32" />
     <Property Name="activityTimeStart" Type="Time" Precision="7" />
     <Property Name="activityTimeEnd" Type="Time" Precision="7" />
-    <NavigationProperty Name="Updates_tbl" Relationship="Self.FK__Updates_t__codeS__3E52440B" FromRole="Store_tbl" ToRole="Updates_tbl" />
+    <NavigationProperty Name="Updates_tbl" Relationship="Self.FK__Updates_t__codeS__2F10007B" FromRole="Store_tbl" ToRole="Updates_tbl" />
   </EntityType>
   <EntityType Name="Updates_tbl">
     <Key>
@@ -24,8 +24,8 @@
     <Property Name="exitingTime" Type="Time" Precision="7" />
     <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="result" Type="Int32" />
-    <NavigationProperty Name="Store_tbl" Relationship="Self.FK__Updates_t__codeS__3E52440B" FromRole="Updates_tbl" ToRole="Store_tbl" />
-    <NavigationProperty Name="Worker_tbl" Relationship="Self.FK__Updates_t__codeW__3F466844" FromRole="Updates_tbl" ToRole="Worker_tbl" />
+    <NavigationProperty Name="Store_tbl" Relationship="Self.FK__Updates_t__codeS__2F10007B" FromRole="Updates_tbl" ToRole="Store_tbl" />
+    <NavigationProperty Name="Worker_tbl" Relationship="Self.FK__Updates_t__codeW__300424B4" FromRole="Updates_tbl" ToRole="Worker_tbl" />
   </EntityType>
   <EntityType Name="Users_tbl">
     <Key>
@@ -48,55 +48,9 @@
     <Property Name="dateStart" Type="DateTime" Precision="0" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="mobility" Type="Boolean" />
-    <NavigationProperty Name="Updates_tbl" Relationship="Self.FK__Updates_t__codeW__3F466844" FromRole="Worker_tbl" ToRole="Updates_tbl" />
+    <NavigationProperty Name="Updates_tbl" Relationship="Self.FK__Updates_t__codeW__300424B4" FromRole="Worker_tbl" ToRole="Updates_tbl" />
+    <NavigationProperty Name="WorkerScheduler_tbl" Relationship="Self.fk_worker_id" FromRole="Worker_tbl" ToRole="WorkerScheduler_tbl" />
   </EntityType>
-  <Association Name="FK__Updates_t__codeS__3E52440B">
-    <End Role="Store_tbl" Type="Self.Store_tbl" Multiplicity="1" />
-    <End Role="Updates_tbl" Type="Self.Updates_tbl" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Store_tbl">
-        <PropertyRef Name="codeStore" />
-      </Principal>
-      <Dependent Role="Updates_tbl">
-        <PropertyRef Name="codeStore" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Updates_t__codeW__3F466844">
-    <End Role="Worker_tbl" Type="Self.Worker_tbl" Multiplicity="1" />
-    <End Role="Updates_tbl" Type="Self.Updates_tbl" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Worker_tbl">
-        <PropertyRef Name="codeWorker" />
-      </Principal>
-      <Dependent Role="Updates_tbl">
-        <PropertyRef Name="codeWorker" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="KosherListEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Store_tbl" EntityType="Self.Store_tbl" />
-    <EntitySet Name="Updates_tbl" EntityType="Self.Updates_tbl" />
-    <EntitySet Name="Users_tbl" EntityType="Self.Users_tbl" />
-    <EntitySet Name="Worker_tbl" EntityType="Self.Worker_tbl" />
-    <AssociationSet Name="FK__Updates_t__codeS__3E52440B" Association="Self.FK__Updates_t__codeS__3E52440B">
-      <End Role="Store_tbl" EntitySet="Store_tbl" />
-      <End Role="Updates_tbl" EntitySet="Updates_tbl" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Updates_t__codeW__3F466844" Association="Self.FK__Updates_t__codeW__3F466844">
-      <End Role="Worker_tbl" EntitySet="Worker_tbl" />
-      <End Role="Updates_tbl" EntitySet="Updates_tbl" />
-    </AssociationSet>
-    <EntitySet Name="WorkerScheduler_tbl" EntityType="KosherListModel.WorkerScheduler_tbl" />
-    <AssociationSet Name="FK_WorkerId_Workers" Association="KosherListModel.FK_WorkerId_Workers">
-      <End Role="WorkerScheduler_tbl" EntitySet="WorkerScheduler_tbl" />
-      <End Role="WorkerScheduler_tbl1" EntitySet="WorkerScheduler_tbl" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WorkerScheduler_tbl_WorkerScheduler_tbl" Association="KosherListModel.FK_WorkerScheduler_tbl_WorkerScheduler_tbl">
-      <End Role="WorkerScheduler_tbl" EntitySet="WorkerScheduler_tbl" />
-      <End Role="WorkerScheduler_tbl1" EntitySet="WorkerScheduler_tbl" />
-    </AssociationSet>
-  </EntityContainer>
   <EntityType Name="WorkerScheduler_tbl">
     <Key>
       <PropertyRef Name="workerSchedulerID" />
@@ -111,33 +65,61 @@
     <Property Name="day5" Type="Int32" />
     <Property Name="day6" Type="Int32" />
     <Property Name="day7" Type="Int32" />
-    <NavigationProperty Name="WorkerScheduler_tbl1" Relationship="KosherListModel.FK_WorkerId_Workers" FromRole="WorkerScheduler_tbl" ToRole="WorkerScheduler_tbl1" />
-    <NavigationProperty Name="WorkerScheduler_tbl2" Relationship="KosherListModel.FK_WorkerId_Workers" FromRole="WorkerScheduler_tbl1" ToRole="WorkerScheduler_tbl" />
-    <NavigationProperty Name="WorkerScheduler_tbl11" Relationship="KosherListModel.FK_WorkerScheduler_tbl_WorkerScheduler_tbl" FromRole="WorkerScheduler_tbl" ToRole="WorkerScheduler_tbl1" />
-    <NavigationProperty Name="WorkerScheduler_tbl3" Relationship="KosherListModel.FK_WorkerScheduler_tbl_WorkerScheduler_tbl" FromRole="WorkerScheduler_tbl1" ToRole="WorkerScheduler_tbl" />
+    <NavigationProperty Name="Worker_tbl" Relationship="Self.fk_worker_id" FromRole="WorkerScheduler_tbl" ToRole="Worker_tbl" />
   </EntityType>
-  <Association Name="FK_WorkerId_Workers">
-    <End Type="KosherListModel.WorkerScheduler_tbl" Role="WorkerScheduler_tbl" Multiplicity="1" />
-    <End Type="KosherListModel.WorkerScheduler_tbl" Role="WorkerScheduler_tbl1" Multiplicity="0..1" />
+  <Association Name="FK__Updates_t__codeS__2F10007B">
+    <End Role="Store_tbl" Type="Self.Store_tbl" Multiplicity="1" />
+    <End Role="Updates_tbl" Type="Self.Updates_tbl" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="WorkerScheduler_tbl">
-        <PropertyRef Name="workerSchedulerID" />
+      <Principal Role="Store_tbl">
+        <PropertyRef Name="codeStore" />
       </Principal>
-      <Dependent Role="WorkerScheduler_tbl1">
-        <PropertyRef Name="workerSchedulerID" />
+      <Dependent Role="Updates_tbl">
+        <PropertyRef Name="codeStore" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_WorkerScheduler_tbl_WorkerScheduler_tbl">
-    <End Type="KosherListModel.WorkerScheduler_tbl" Role="WorkerScheduler_tbl" Multiplicity="1" />
-    <End Type="KosherListModel.WorkerScheduler_tbl" Role="WorkerScheduler_tbl1" Multiplicity="0..1" />
+  <Association Name="FK__Updates_t__codeW__300424B4">
+    <End Role="Worker_tbl" Type="Self.Worker_tbl" Multiplicity="1" />
+    <End Role="Updates_tbl" Type="Self.Updates_tbl" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="WorkerScheduler_tbl">
-        <PropertyRef Name="workerSchedulerID" />
+      <Principal Role="Worker_tbl">
+        <PropertyRef Name="codeWorker" />
       </Principal>
-      <Dependent Role="WorkerScheduler_tbl1">
-        <PropertyRef Name="workerSchedulerID" />
+      <Dependent Role="Updates_tbl">
+        <PropertyRef Name="codeWorker" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_worker_id">
+    <End Role="Worker_tbl" Type="Self.Worker_tbl" Multiplicity="1" />
+    <End Role="WorkerScheduler_tbl" Type="Self.WorkerScheduler_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker_tbl">
+        <PropertyRef Name="codeWorker" />
+      </Principal>
+      <Dependent Role="WorkerScheduler_tbl">
+        <PropertyRef Name="workerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KosherListEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Store_tbl" EntityType="Self.Store_tbl" />
+    <EntitySet Name="Updates_tbl" EntityType="Self.Updates_tbl" />
+    <EntitySet Name="Users_tbl" EntityType="Self.Users_tbl" />
+    <EntitySet Name="Worker_tbl" EntityType="Self.Worker_tbl" />
+    <EntitySet Name="WorkerScheduler_tbl" EntityType="Self.WorkerScheduler_tbl" />
+    <AssociationSet Name="FK__Updates_t__codeS__2F10007B" Association="Self.FK__Updates_t__codeS__2F10007B">
+      <End Role="Store_tbl" EntitySet="Store_tbl" />
+      <End Role="Updates_tbl" EntitySet="Updates_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Updates_t__codeW__300424B4" Association="Self.FK__Updates_t__codeW__300424B4">
+      <End Role="Worker_tbl" EntitySet="Worker_tbl" />
+      <End Role="Updates_tbl" EntitySet="Updates_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="fk_worker_id" Association="Self.fk_worker_id">
+      <End Role="Worker_tbl" EntitySet="Worker_tbl" />
+      <End Role="WorkerScheduler_tbl" EntitySet="WorkerScheduler_tbl" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

@@ -44,3 +44,26 @@ C:\Users\WIN10\Desktop\פרויקט גמר\kosherListApi\BLL\obj\Debug\BLL.cspro
 C:\Users\WIN10\Desktop\פרויקט גמר\kosherListApi\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\WIN10\Desktop\פרויקט גמר\kosherListApi\BLL\obj\Debug\BLL.dll
 C:\Users\WIN10\Desktop\פרויקט גמר\kosherListApi\BLL\obj\Debug\BLL.pdb
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\BLL.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\BLL.pdb
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\DAL.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\DTO.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\EntityFramework.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\System.Web.Cors.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\System.Web.Http.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\DAL.pdb
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\DAL.dll.config
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\DTO.pdb
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\EntityFramework.xml
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\obj\Debug\BLL.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\BLL\obj\Debug\BLL.pdb

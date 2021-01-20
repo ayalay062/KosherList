@@ -20,3 +20,14 @@ C:\Users\WIN10\Desktop\פרויקט גמר\kosherListApi\DAL\obj\Debug\DAL.cspro
 C:\Users\WIN10\Desktop\פרויקט גמר\kosherListApi\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\WIN10\Desktop\פרויקט גמר\kosherListApi\DAL\obj\Debug\DAL.dll
 C:\Users\WIN10\Desktop\פרויקט גמר\kosherListApi\DAL\obj\Debug\DAL.pdb
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\bin\Debug\DAL.dll.config
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\bin\Debug\DAL.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\bin\Debug\DAL.pdb
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\bin\Debug\EntityFramework.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\bin\Debug\EntityFramework.xml
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\obj\Debug\DAL.dll
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\obj\Debug\DAL.pdb

@@ -110,32 +110,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="KosherListModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KosherListModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="KosherListModel.edmx.diagram">
       <DependentUpon>KosherListModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="KosherListModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>KosherListModel.Context.cs</LastGenOutput>
       <DependentUpon>KosherListModel.edmx</DependentUpon>
+      <LastGenOutput>KosherListModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="KosherListModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KosherListModel.edmx</DependentUpon>
       <LastGenOutput>KosherListModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
