@@ -37,20 +37,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Worker_tbl">
-      <EntityTypeMapping TypeName="KosherListModel.Worker_tbl">
-        <MappingFragment StoreEntitySet="Worker_tbl">
-          <ScalarProperty Name="codeWorker" ColumnName="codeWorker" />
-          <ScalarProperty Name="nameWorker" ColumnName="nameWorker" />
-          <ScalarProperty Name="addressWorker" ColumnName="addressWorker" />
-          <ScalarProperty Name="telWorker" ColumnName="telWorker" />
-          <ScalarProperty Name="experience" ColumnName="experience" />
-          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="mobility" ColumnName="mobility" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="WorkerScheduler_tbl">
       <EntityTypeMapping TypeName="KosherListModel.WorkerScheduler_tbl">
         <MappingFragment StoreEntitySet="WorkerScheduler_tbl">
@@ -64,6 +50,21 @@
           <ScalarProperty Name="day5" ColumnName="day5" />
           <ScalarProperty Name="day6" ColumnName="day6" />
           <ScalarProperty Name="day7" ColumnName="day7" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Worker_tbl">
+      <EntityTypeMapping TypeName="KosherListModel.Worker_tbl">
+        <MappingFragment StoreEntitySet="Worker_tbl">
+          <ScalarProperty Name="passwordWorker" ColumnName="passwordWorker" />
+          <ScalarProperty Name="mobility" ColumnName="mobility" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="experience" ColumnName="experience" />
+          <ScalarProperty Name="telWorker" ColumnName="telWorker" />
+          <ScalarProperty Name="addressWorker" ColumnName="addressWorker" />
+          <ScalarProperty Name="nameWorker" ColumnName="nameWorker" />
+          <ScalarProperty Name="codeWorker" ColumnName="codeWorker" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

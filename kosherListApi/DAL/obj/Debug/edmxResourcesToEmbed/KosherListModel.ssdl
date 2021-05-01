@@ -45,6 +45,7 @@
     <Property Name="dateStart" Type="date" />
     <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="mobility" Type="bit" />
+    <Property Name="passwordWorker" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="WorkerScheduler_tbl">
     <Key>
@@ -61,7 +62,7 @@
     <Property Name="day6" Type="int" />
     <Property Name="day7" Type="int" />
   </EntityType>
-  <Association Name="FK__Updates_t__codeS__2F10007B">
+  <Association Name="FK__Updates_t__codeS__403A8C7D">
     <End Role="Store_tbl" Type="Self.Store_tbl" Multiplicity="1" />
     <End Role="Updates_tbl" Type="Self.Updates_tbl" Multiplicity="*" />
     <ReferentialConstraint>
@@ -73,7 +74,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Updates_t__codeW__300424B4">
+  <Association Name="FK__Updates_t__codeW__412EB0B6">
     <End Role="Worker_tbl" Type="Self.Worker_tbl" Multiplicity="1" />
     <End Role="Updates_tbl" Type="Self.Updates_tbl" Multiplicity="*" />
     <ReferentialConstraint>
@@ -103,11 +104,11 @@
     <EntitySet Name="Users_tbl" EntityType="Self.Users_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Worker_tbl" EntityType="Self.Worker_tbl" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WorkerScheduler_tbl" EntityType="Self.WorkerScheduler_tbl" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Updates_t__codeS__2F10007B" Association="Self.FK__Updates_t__codeS__2F10007B">
+    <AssociationSet Name="FK__Updates_t__codeS__403A8C7D" Association="Self.FK__Updates_t__codeS__403A8C7D">
       <End Role="Store_tbl" EntitySet="Store_tbl" />
       <End Role="Updates_tbl" EntitySet="Updates_tbl" />
     </AssociationSet>
-    <AssociationSet Name="FK__Updates_t__codeW__300424B4" Association="Self.FK__Updates_t__codeW__300424B4">
+    <AssociationSet Name="FK__Updates_t__codeW__412EB0B6" Association="Self.FK__Updates_t__codeW__412EB0B6">
       <End Role="Worker_tbl" EntitySet="Worker_tbl" />
       <End Role="Updates_tbl" EntitySet="Updates_tbl" />
     </AssociationSet>

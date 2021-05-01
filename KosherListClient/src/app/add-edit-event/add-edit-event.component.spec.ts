@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimetableComponent } from './timetable.component';
+import { AddEditEventComponent } from './add-edit-event.component';
 
-describe('TimetableComponent', () => {
-  let component: TimetableComponent;
-  let fixture: ComponentFixture<TimetableComponent>;
+describe('AddEditEventComponent', () => {
+  let component: AddEditEventComponent;
+  let fixture: ComponentFixture<AddEditEventComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimetableComponent ]
+      declarations: [ AddEditEventComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimetableComponent);
+    fixture = TestBed.createComponent(AddEditEventComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

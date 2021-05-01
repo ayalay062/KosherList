@@ -35,7 +35,7 @@ namespace BLL.services
         {
             using (KosherListEntities db = new KosherListEntities())
             {
-                var newWorker = WorkerConvertion.convertToStore(worker);
+                var newWorker = WorkerConvertion.convertToWorker(worker);
                 for (int i = 0; i < 24; i++)
                 {
                     newWorker.WorkerScheduler_tbl.Add(new WorkerScheduler_tbl() { hour = i });
@@ -53,7 +53,7 @@ namespace BLL.services
         {
             using (KosherListEntities db = new KosherListEntities())
             {
-                var updatedWorker = db.Worker_tbl.FirstOrDefault(x => x.codeWorker == worker.codeWorker);
+                var updatedWorker = db.Worker_tbl.FirstOrDefault(x => x.passwordWorker == worker.passwordWorker);
                 updatedWorker.WorkerScheduler_tbl = WorkerSchedulerConvertion.convertToListWorkerScheduler(worker.WorkerScheduler_tbl);
                 db.SaveChanges();
                 return true;
@@ -70,6 +70,18 @@ namespace BLL.services
                 //TODO
                 db.SaveChanges();
                 return true;
+
+            }
+        }
+        public static WorkerDto Login(WorkerDto worker)
+        {
+            using (KosherListEntities db = new KosherListEntities())
+            {
+
+                var WorkerLogin = db.Worker_tbl.FirstOrDefault(x => x.passwordWorker == worker.passwordWorker && x.nameWorker == worker.nameWorker);
+                if (WorkerLogin == null) return null;
+
+                return WorkerConvertion.convertToDto(WorkerLogin);
 
             }
         }

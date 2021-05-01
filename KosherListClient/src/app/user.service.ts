@@ -8,8 +8,7 @@ import { environment } from "src/environments/environment";
   providedIn: "root",
 })
 export class UserService {
-  api = environment.apiUsers;
-  CurrentUser: Users;
+  apiUsers = environment.apiUsers;
   constructor(private Http: HttpClient) {}
   // getCurrentUser(){
   //   if(this.CurrentUser===null)
@@ -18,17 +17,15 @@ export class UserService {
   //   return this.CurrentUser;
   // };
 
-  saveCurrentUser(u: Users) {
-    this.CurrentUser = u;
-  }
+  
   getUsers(): Observable<Users[]> {
     return this.Http.get<Users[]>(
-     this.api +  "getAllUsers"
+     this.apiUsers +  "getAllUsers"
     );
   }
   login(user: Users): Observable<Users> {
     return this.Http.post<Users>(
-      this.api + "login", user
+      this.apiUsers + "login", user
     );
   }
 

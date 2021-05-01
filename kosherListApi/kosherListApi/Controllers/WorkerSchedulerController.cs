@@ -29,8 +29,28 @@ namespace kosherListApi.Controllers
                 return Ok(WorkerSchedulerBL.AddWorkerScheduler(WorkerScheduler));
 
             }
+
+        [HttpGet]
+        [Route("getWorkerSchedulerById/{id}")]
+        public IHttpActionResult getWorkerSchedulerById(int id)
+        {
+            return Ok(WorkerSchedulerBL.getWorkerSchedulerById(id));
         }
 
+        [HttpPost]
+        [Route("setWorkerScheduler")]
+        public IHttpActionResult setWorkerScheduler(WorkerSchedulerRequest wsRequest)
+        {
+            return Ok(WorkerSchedulerBL.setWorkerScheduler(wsRequest.workerId, wsRequest.codeStore, wsRequest.day,wsRequest.hourEnd,wsRequest.hourStart));
+        }
+    }
+    public class WorkerSchedulerRequest {
+        public int workerId { get; set; }
+        public int codeStore { get; set; }
+        public int day { get; set; }
+        public int hourEnd { get; set; }
+        public int hourStart { get; set; }
+    }
     //    api/store/getAllWorkerScheduler
 
 

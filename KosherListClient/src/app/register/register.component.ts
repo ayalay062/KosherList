@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
     dateStart: this.fb.control('', [Validators.required]),
     email: this.fb.control('', [Validators.required]),
     mobility: this.fb.control('', [Validators.required]),
+    passwordWorker:this.fb.control('', [Validators.required]),
     
   });
   flagMail: boolean = false;
@@ -29,6 +30,8 @@ export class RegisterComponent implements OnInit {
   }
   hide:boolean=true;
   flag: any = false;
+  flagUser: boolean;
+
   // worker: Worker = new Worker();
   
 // if (this.worker.email.indexOf("@") > -1)
@@ -37,10 +40,8 @@ export class RegisterComponent implements OnInit {
       saveValueRadio(event: MatRadioChange, data)
       {
          this.form.value.movility=data;
-        //  console.log(this.form.value);
 
       };
-  flagUser: boolean;
   register() {
     const worker = <Worker> this.form.value;
     this.service.createWorker(worker).subscribe(x=>{

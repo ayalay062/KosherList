@@ -2,8 +2,8 @@
 <div class="example-container">
   <mat-form-field appearance="fill">
     <mat-label >שם משתמש</mat-label>
-    <input type="text"   formControlName="userUserName"  required matInput>
-    <!-- <mat-error *ngIf="form.get('userUserName').errors?.required"> חובה להזין שם.</mat-error> -->
+    <input type="text"   formControlName="nameWorker"  required matInput>
+    <!-- <mat-error *ngIf="form.get('nameWorker').errors?.required"> חובה להזין שם.</mat-error> -->
     <!-- [(ngModel)]="name" name="l" -->
   </mat-form-field>
   
@@ -11,7 +11,7 @@
   <!-- [(ngModel)]="Password"  name="ls" -->
   <mat-form-field appearance="fill">
       <mat-label>סיסמא</mat-label>
-      <input type="text" formControlName="userPassword"  required  matInput [type]="hide ? 'password' : 'text'">
+      <input type="text" formControlName="passwordWorker"  required  matInput [type]="hide ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>

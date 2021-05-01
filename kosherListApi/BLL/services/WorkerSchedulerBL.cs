@@ -22,7 +22,18 @@ namespace BLL.services
             }
 
         }
+        public static List<WorkerSchedulerDto> getWorkerSchedulerById(int id)
+        {
+            using (KosherListEntities db = new KosherListEntities())
+            {
 
+                var WorkerSchedulerById = db.WorkerScheduler_tbl.Where(x => x.workerId== id).ToList();
+                if (WorkerSchedulerById == null) return null;
+
+                return WorkerSchedulerConvertion.convertToListDto(WorkerSchedulerById);
+
+            }
+        }
         public static bool AddWorkerScheduler(WorkerSchedulerDto WorkerScheduler)
         {
             using (KosherListEntities db = new KosherListEntities())
@@ -34,6 +45,46 @@ namespace BLL.services
 
             }
         }
+
+        public static bool setWorkerScheduler(int workerId, int codeStore, int day,int  hourEnd,int hourStart)
+        {
+            using (KosherListEntities db = new KosherListEntities())
+            {
+                var countHourse = hourEnd - hourStart;
+                for (; hourStart < hourEnd; hourStart++)
+                {
+                    var scheduleHour = db.WorkerScheduler_tbl.FirstOrDefault(x => x.workerId == workerId && x.hour == hourStart);
+                    switch (day)
+                    {
+                        case 1:
+                            scheduleHour.day1 = codeStore;
+                            break;
+                        case 2:
+                            scheduleHour.day2 = codeStore;
+                            break;
+                        case 3:
+                            scheduleHour.day3 = codeStore;
+                            break;
+                        case 4:
+                            scheduleHour.day4 = codeStore;
+                            break;
+                        case 5:
+                            scheduleHour.day5 = codeStore;
+                            break;
+                        case 6:
+                            scheduleHour.day6 = codeStore;
+                            break;
+                        case 7:
+                            scheduleHour.day7 = codeStore;
+                            break;
+                  
+                    }
+                    db.SaveChanges();
+                }
+            }
+            return true;
+        }
+
         public static bool UpdateWorkerScheduler(WorkerSchedulerDto WorkerScheduler)
         {
             using (KosherListEntities db = new KosherListEntities())

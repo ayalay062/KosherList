@@ -23,7 +23,7 @@ namespace BLL.convertion
             newWorkerScheduler.day5 = WS.day5;
             newWorkerScheduler.day6 = WS.day6;
             newWorkerScheduler.day7 = WS.day7;
-
+            newWorkerScheduler.hour = WS.hour;
             return newWorkerScheduler;
         }
 
@@ -36,6 +36,7 @@ namespace BLL.convertion
             });
             return newWorkerScheduler;
         }
+
         public static List<WorkerScheduler_tbl> convertToListWorkerScheduler(List<WorkerSchedulerDto> WS)
         {
             List<WorkerScheduler_tbl> newWorkerScheduler = new List<WorkerScheduler_tbl>();
@@ -58,6 +59,7 @@ namespace BLL.convertion
             newWorkerScheduler.day5 = WS.day5;
             newWorkerScheduler.day6 = WS.day6;
             newWorkerScheduler.day7 = WS.day7;
+            newWorkerScheduler.hour = WS.hour;
 
             return newWorkerScheduler;
         }

@@ -43,8 +43,16 @@ namespace kosherListApi.Controllers
 
         }
 
+        [HttpPost]
+        [Route("login")]
+        public IHttpActionResult Login(WorkerDto worker)
+        {
+            return Ok(WorkerBL.Login(worker));
+
+        }
     }
 }
+
 
 
 

@@ -7,6 +7,8 @@ export class Update
     begginingTime:Date;
     exitingTime:Date;
     remarks:string;
+    result:number;
+
 }
 
 

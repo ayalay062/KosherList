@@ -29,6 +29,7 @@ namespace DAL
         public Nullable<System.DateTime> dateStart { get; set; }
         public string email { get; set; }
         public Nullable<bool> mobility { get; set; }
+        public string passwordWorker { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Updates_tbl> Updates_tbl { get; set; }

@@ -21,6 +21,8 @@ namespace BLL.convertion
             newWorker.mobility = w.mobility;
             newWorker.nameWorker = w.nameWorker;
             newWorker.telWorker = w.telWorker;
+            newWorker.passwordWorker = w.passwordWorker;
+
             return newWorker;
         }
         public static WorkerDto convertToDtoWithShceduler(Worker_tbl w)
@@ -32,6 +34,7 @@ namespace BLL.convertion
             newWorker.email = w.email;
             newWorker.experience = w.experience;
             newWorker.mobility = w.mobility;
+            newWorker.passwordWorker = w.passwordWorker;
             newWorker.nameWorker = w.nameWorker;
             newWorker.telWorker = w.telWorker;
             newWorker.WorkerScheduler_tbl = w.WorkerScheduler_tbl==null? null: WorkerSchedulerConvertion.convertToListDto(w.WorkerScheduler_tbl.ToList());
@@ -52,12 +55,12 @@ namespace BLL.convertion
             List<Worker_tbl> newWorker = new List<Worker_tbl>();
             w.ForEach(x =>
             {
-                newWorker.Add(convertToStore(x));
+                newWorker.Add(convertToWorker(x));
             });
             return newWorker;
         }
         //המרה לDB
-        public static Worker_tbl convertToStore(WorkerDto w)
+        public static Worker_tbl convertToWorker(WorkerDto w)
         {
             Worker_tbl newWorker = new Worker_tbl();
             newWorker.addressWorker = w.addressWorker;
@@ -66,6 +69,7 @@ namespace BLL.convertion
             newWorker.email = w.email;
             newWorker.experience = w.experience;
             newWorker.mobility = w.mobility;
+            newWorker.passwordWorker = w.passwordWorker;
             newWorker.nameWorker = w.nameWorker;
             newWorker.telWorker = w.telWorker;
             return newWorker;

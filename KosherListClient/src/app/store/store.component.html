@@ -22,8 +22,7 @@
         <mat-label>סוג חנות</mat-label>
         <mat-select>
           <mat-option *ngFor="let type of typeStoreNumber" [value]="typeStoreNumber" 
-          (click)="ss($event,type)">
-           <!-- (selectionChange)="ss($event)"> -->
+          (click)="saveClasificationStore($event,type)">
             {{ type }}
           </mat-option>
         </mat-select>

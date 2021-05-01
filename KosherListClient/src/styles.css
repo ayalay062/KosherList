@@ -18,3 +18,8 @@ body {
     text-align: right;
     direction: rtl;
 }
+
+.cal-week-view .cal-time-events {
+ 
+    flex-flow: row-reverse;
+}

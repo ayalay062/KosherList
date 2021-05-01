@@ -1,4 +1,3 @@
-<p>register works!</p>
 <form [formGroup]="form" (ngSubmit)="register()">
 
 <p>
@@ -49,7 +48,7 @@
   <p>
     <mat-form-field appearance="fill">
       <mat-label>סיסמא</mat-label>
-      <input type="text"  required  matInput [type]="hide ? 'password' : 'text'">
+      <input type="text" formControlName="passwordWorker" required  matInput [type]="hide ? 'password' : 'text'">
       <!-- [(ngModel)]="worker.password" צריך להוסיף בטבלה של worker ואז לשים בתוך באינפוט  -->
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

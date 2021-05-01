@@ -34,7 +34,7 @@ namespace BLL.convertion
             });
             return newUpdates;
         }
-        public static List<Updates_tbl> convertToListStore(List<UpdatesDto> u)
+        public static List<Updates_tbl> convertToListUpdates(List<UpdatesDto> u)
         {
             List<Updates_tbl> newUpdates = new List<Updates_tbl>();
             u.ForEach(x =>

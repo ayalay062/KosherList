@@ -5,8 +5,10 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { RouterModule, Router } from "@angular/router";
 import swal from "sweetalert2";
 import { Users } from "../classes/Users";
+import { Worker } from "../classes/Worker";
 import { GetServerService } from "../get-server.service";
 import { UserService } from "../user.service";
+import { WorkerService } from "../worker.service";
 
 @Component({
   selector: "app-login",
@@ -15,27 +17,27 @@ import { UserService } from "../user.service";
 })
 export class LoginComponent implements OnInit {
   constructor(
-    private service: UserService,
+    private service: WorkerService,
     private fb: FormBuilder,
     private router: Router
   ) {}
   form = this.fb.group({
-    userUserName: this.fb.control("", [Validators.required]),
-    userPassword: this.fb.control("", [Validators.required]),
+    nameWorker: this.fb.control("", [Validators.required]),
+    passwordWorker:this.fb.control("", [Validators.required]),
   });
   testObject: Variable;
   hide = true;
 
   ngOnInit() {}
   searchuser() {
-    const User = <Users>this.form.value;
-    this.service.login(User).subscribe((myuser) => {
-      if (!myuser) {
+    const woker = <Worker>this.form.value;
+    this.service.login(woker).subscribe((myWorker) => {
+      if (!myWorker) {
         this.form.reset();
         swal.fire("Oops!", "שם משתמש/סיסמא לא תקינים", "error");
       } else {
         swal.fire("","הכניסה בוצעה בהצלחה!", "success");
-        localStorage.setItem("userCurrent", JSON.stringify(myuser));
+        localStorage.setItem("userCurrent", JSON.stringify(myWorker));
         this.router.navigate(["/updates"]);
       }
     });

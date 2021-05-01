@@ -30,7 +30,7 @@ namespace BLL.convertion
             });
             return newUsers;
         }
-        public static List<Users_tbl> convertToListStore(List<UsersDto> u)
+        public static List<Users_tbl> convertToListUser(List<UsersDto> u)
         {
             List<Users_tbl> newUsers = new List<Users_tbl>();
             u.ForEach(x =>

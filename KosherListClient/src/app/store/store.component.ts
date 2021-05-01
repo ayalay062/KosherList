@@ -38,14 +38,10 @@ create(){
    
   })
 }
-ss(e: MatRadioChange, data:number)
+saveClasificationStore(e: MatRadioChange, data:number)
 {
   // console.log(e);
-
-
-
-
-  // console.log(data);
+// console.log(data);
 this.form.value.clasificationStore=data;
  console.log(this.form);
 // console.log(this.form.value);

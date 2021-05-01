@@ -23,6 +23,29 @@ namespace kosherListApi.Controllers
         {
             return Ok(UpdatesBL.GetAllUpdates());
         }
+
+        [HttpGet]
+        [Route("GetBadUpdates")]
+        public IHttpActionResult GetBadUpdates()
+        {
+            return Ok(UpdatesBL.GetBadUpdates());
+        }
+
+        
+
+
+
+        [HttpGet]
+        [Route("getUpdatesById/{id}")]
+        public IHttpActionResult getUpdatesById(int id)
+        {
+            return Ok(UpdatesBL.getUpdatesById(id));
+        }
+
+        
+
+        
+
         [HttpPost]
         [Route("AddUpdate")]
         public IHttpActionResult AddUpdate(UpdatesDto Update)

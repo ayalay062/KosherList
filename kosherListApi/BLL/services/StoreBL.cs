@@ -39,7 +39,11 @@ namespace BLL.services
 
                 var updatedStore = db.Store_tbl.FirstOrDefault(x => x.codeStore == store.codeStore);
                 updatedStore.nameStore = store.nameStore;
-                //TODO
+                updatedStore.activityTimeEnd = store.activityTimeEnd;
+                updatedStore.activityTimeStart = store.activityTimeStart;
+                updatedStore.addressStore = store.addressStore;
+                updatedStore.clasificationStore = store.clasificationStore;
+                updatedStore.nameStore = store.nameStore; ;
                 db.SaveChanges();
                 return true;
 

@@ -8,6 +8,8 @@ export class Worker
     dateStart:Date;
     email:string;
     mobility:boolean;
+    passwordWorker:string;
+
 }
 
 
