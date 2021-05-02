@@ -1,6 +1,7 @@
 <div class="form-wrapper-large">
     <h1 style="width: 300px;"> רשימת חנויות בעיתיות</h1>
     <br>
+    <h4>מצב גרוע</h4>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -26,7 +27,38 @@
                 <td> {{store.countResultInfo}}</td>
 
                 <td>
-                    <mat-icon class="icon" (click)="openDialog(store.codeStore);">visibility</mat-icon>
+                    <mat-icon class="icon" (click)="openDialog(store.codeStore,3);">visibility</mat-icon>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>טעון מעקב</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>קוד חנות</th>
+                <th>שם</th>
+                <th>כתובת</th>
+                <th>סוג חנות</th>
+                <th>זמן פתיחה</th>
+                <th>זמן סגירה</th>
+                <th>מספר הבעיות</th>
+                <th>פעולות</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let store of  warnStores">
+
+                <td>{{store.codeStore}}</td>
+                <td> {{store.nameStore}}</td>
+                <td> {{store.addressStore}}</td>
+                <td *ngIf="store.clasificationStore"> {{store.clasificationStore == 1? "יצור חיצוני" : "יצור פנימי"}}</td>
+                <td *ngIf="!store.clasificationStore"></td>
+                <td> {{store.activityTimeStart}}</td>
+                <td> {{store.activityTimeStart}}</td>
+                <td> {{store.countResultInfo}}</td>
+
+                <td>
+                    <mat-icon class="icon" (click)="openDialog(store.codeStore,2);">visibility</mat-icon>
                 </td>
             </tr>
         </tbody>

@@ -24,6 +24,14 @@ export class UpdatesService {
     return this.Http.post<boolean>(this.apiUpdate + "AddUpdate", newUpdate);
   }
 
+  GetWarningUpdatesOfStore(code: number): Observable<Update[]> {
+    return this.Http.get<Update[]>(this.apiUpdate + "GetWarningUpdatesOfStore/" + code);
+  }
+  GetBadUpdatesOfStore(code: number): Observable<Update[]> {
+    return this.Http.get<Update[]>(this.apiUpdate + "GetBadUpdatesOfStore/" + code);
+  }
+  
+
   updateUpdates(update: Update): Observable<boolean> {
     return this.Http.post<boolean>(this.apiUpdate + "UpdateUpdate", update);
   }

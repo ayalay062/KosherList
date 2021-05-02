@@ -43,6 +43,7 @@ import { SetStoresComponent } from "./set-stores/set-stores.component";
 import { SetWorkersComponent } from "./set-workers/set-workers.component";
 import { AllWorkersSchedulersComponent } from "./all-workers-schedulers/all-workers-schedulers.component";
 import { BadStoresComponent } from './bad-stores/bad-stores.component';
+import { ViewStoreUpdatesModalComponent } from './view-store-updates-modal/view-store-updates-modal.component';
 
 @NgModule({
   declarations: [
@@ -60,8 +61,9 @@ import { BadStoresComponent } from './bad-stores/bad-stores.component';
     SetWorkersComponent,
     AllWorkersSchedulersComponent,
     BadStoresComponent,
+    ViewStoreUpdatesModalComponent,
   ],
-  entryComponents: [AddEditEventComponent,StoreComponent,RegisterComponent],
+  entryComponents: [AddEditEventComponent,StoreComponent,RegisterComponent,ViewStoreUpdatesModalComponent],
 
   imports: [
     MatTableModule,

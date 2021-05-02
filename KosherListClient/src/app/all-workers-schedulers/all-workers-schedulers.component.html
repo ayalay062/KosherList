@@ -1,1 +1,22 @@
-<p>all-workers-schedulers works!</p>
+<br>
+<div class="row text-center">
+
+    <div class="col-md-4">
+        <button (click)="setEventModal()" style="    margin-top: 10px;" class="btn-color">הוספה</button>
+    </div>
+    <div class="col-md-4">
+        <h2 class="form-h1">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h2>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+<br />
+<div style="max-width: 90%;
+   margin: auto;" [ngSwitch]="view">
+    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventTimesChanged)="eventTimesChanged($event)">
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-day-view>
+</div>

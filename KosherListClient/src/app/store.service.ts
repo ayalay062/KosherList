@@ -16,7 +16,10 @@ export class StoreService {
   getBadStores(): Observable<Store[]> {
     return this.Http.get<Store[]>(this.apiStore + "getBadStores");
   }
-
+  getWarningStores(): Observable<Store[]> {
+    return this.Http.get<Store[]>(this.apiStore + "getWarningStores");
+  }
+  
   getStoreByCode(code: number): Observable<Store> {
     return this.Http.get<Store>(this.apiStore + "getStoreByCode/" + code);
   }

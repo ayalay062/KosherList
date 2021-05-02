@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         else{
 
           this.service.loginAsWorker.next(false);
-          this.router.navigate(["/stores"]);
+          this.router.navigate(["/workers"]);
 
         }
      

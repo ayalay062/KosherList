@@ -11,6 +11,7 @@ body {
     font-family: ass, Roboto, "Helvetica Neue", sans-serif;
     text-align: right;
     direction: rtl;
+    overflow-x: hidden;
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-infix,
@@ -509,4 +510,10 @@ td.mat-footer-cell {
     padding: 0;
     margin: 0;
     text-align: center;
+}
+
+.cal-week-view mwl-calendar-week-view-hour-segment,
+.cal-week-view .cal-hour-segment,
+.cal-week-view .cal-hour-segment {
+    height: 20px!important;
 }

@@ -1,0 +1,24 @@
+<div class="form-wrapper-modal">
+    <!-- <h1> פרוט עדכונים</h1>
+    <br> -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>תאריך</th>
+                <th>שעת כניסה</th>
+                <th>שעת יציאה</th>
+                <th>הערות</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let update of updates">
+                <td> {{update.dateVisit | date:"dd/MM/yyyy"}}</td>
+                <td> {{update.begginingTime}}</td>
+                <td> {{update.exitingTime}}</td>
+
+                <td> {{update.remarks}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>

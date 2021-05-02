@@ -8,6 +8,7 @@ import { UpdatesComponent } from "./updates/updates.component";
 import { SetStoresComponent } from "./set-stores/set-stores.component";
 import { BadStoresComponent } from "./bad-stores/bad-stores.component";
 import { SetWorkersComponent } from "./set-workers/set-workers.component";
+import { AllWorkersSchedulersComponent } from "./all-workers-schedulers/all-workers-schedulers.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "login", component: LoginComponent },
   { path: "WorkerScheduler", component: WorkerSchedulerComponent },
+  { path: "workers-schedulers", component: AllWorkersSchedulersComponent },
   { path: "updates", component: UpdatesComponent },
   { path: "bad-stores", component: BadStoresComponent },
 
