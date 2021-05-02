@@ -18,7 +18,7 @@ namespace DTO
         public string remarks { get; set; }
         public Nullable<int> result { get; set; }
 
-        public virtual Store_tbl Store_tbl { get; set; }
+        public  StoreDto Store_tbl { get; set; }
         public virtual Worker_tbl Worker_tbl { get; set; }
     }
 }

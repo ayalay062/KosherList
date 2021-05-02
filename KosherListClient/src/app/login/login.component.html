@@ -1,28 +1,27 @@
-<form [formGroup]="form" (ngSubmit)="searchuser()">
-<div class="example-container">
-  <mat-form-field appearance="fill">
-    <mat-label >שם משתמש</mat-label>
-    <input type="text"   formControlName="nameWorker"  required matInput>
-    <!-- <mat-error *ngIf="form.get('nameWorker').errors?.required"> חובה להזין שם.</mat-error> -->
-    <!-- [(ngModel)]="name" name="l" -->
-  </mat-form-field>
-  
-  <br>
-  <!-- [(ngModel)]="Password"  name="ls" -->
-  <mat-form-field appearance="fill">
-      <mat-label>סיסמא</mat-label>
-      <input type="text" formControlName="passwordWorker"  required  matInput [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+<form class="form-wrapper" [formGroup]="form" (ngSubmit)="searchuser()">
+    <br> <br> <br>
+    <h1>כניסה</h1>
+    <mat-form-field appearance="fill">
+        <mat-label>שם משתמש</mat-label>
+        <input type="text" formControlName="nameWorker" required matInput>
+        <!-- <mat-error *ngIf="form.get('nameWorker').errors?.required"> חובה להזין שם.</mat-error> -->
+        <!-- [(ngModel)]="name" name="l" -->
+    </mat-form-field>
+    <!-- [(ngModel)]="Password"  name="ls" -->
+    <mat-form-field appearance="fill">
+        <mat-label>סיסמא</mat-label>
+        <input type="text" formControlName="passwordWorker" required matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
     <br>
-    <button mat-button type="submit" #submit>כניסה</button>
+    <button class="btn-color" mat-button type="submit" #submit>כניסה</button>
     <!-- <input type="submit" name="lss" [disabled]="myForm.invalid" value="login" 
     (click)="searchuser()"> -->
     <!-- <mat-error *ngIf="form.get('userUserName').errors?.required"> חובה להזין שם.</mat-error> -->
-    <div *ngIf="flag">try again or<a routerLink="/register" routerLinkActive="active"> register"</a></div>
+    <div *ngIf="flag">Try again or<a routerLink="/register" routerLinkActive="active"> register"</a></div>
     <!-- <div *ngIf="!flag" >"הצליח"</div> -->
     <!-- (click)="register()" -->
-</div>
+
 </form>

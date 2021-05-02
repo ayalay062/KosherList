@@ -43,3 +43,4 @@ C:\Users\WIN10\Desktop\kosherList\KosherList\kosherListApi\DAL\obj\Debug\DAL.csp
 C:\Users\WIN10\Desktop\kosherList\KosherList\kosherListApi\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\WIN10\Desktop\kosherList\KosherList\kosherListApi\DAL\obj\Debug\DAL.dll
 C:\Users\WIN10\Desktop\kosherList\KosherList\kosherListApi\DAL\obj\Debug\DAL.pdb
+C:\Users\AyalaYankelevitz\KosherList\kosherListApi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

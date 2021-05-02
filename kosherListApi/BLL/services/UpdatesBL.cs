@@ -16,33 +16,24 @@ namespace BLL.services
             using (KosherListEntities db = new KosherListEntities())
             {
 
+
                 var updates = db.Updates_tbl.ToList();
                 return UpdatesConvertion.convertToListDto(updates);
 
             }
         }
-
-        public static List<StoreDto> GetBadUpdates()
+        public static List<UpdatesDto> GetAllWorkerUpdates(int code)
         {
             using (KosherListEntities db = new KosherListEntities())
             {
-
-                var updates = db.Updates_tbl.Where(x => x.dateVisit >= DateTime.Now.AddDays(-30)
-                && x.result ==3
-                ).GroupBy(x => new { codeStore= x.codeStore, result= x.result })
-                .Select(x => new { codeStore = x.Key.codeStore, result = x.Count()}).Where(y=>y.result >= 2).ToList();
-                var storesIds = updates.Select(x => x.codeStore);
-                var stores = db.Store_tbl.Where(x => storesIds.Contains(x.codeStore)).ToList();
-                var storesDto = StoreConvertion.convertToListDto(stores);
-                foreach (var store in storesDto)
-                {
-                    store.countResultInfo = updates.FirstOrDefault(x => x.codeStore == store.codeStore).result;
-                }
-
-                return storesDto.OrderByDescending(x=>x.countResultInfo).ToList();
+                var last30Date = DateTime.Now.AddDays(-30);
+                var updates = db.Updates_tbl.Include("Store_tbl").Where(x=>x.codeWorker == code
+                && x.dateVisit >= last30Date).ToList();
+                return UpdatesConvertion.convertToListDto(updates);
 
             }
         }
+        
 
         public static bool UpdateUpdate(UpdatesDto update)
         {
@@ -87,6 +78,34 @@ namespace BLL.services
 
             }
         }
+
+        public static List<UpdatesDto> GetBadUpdatesOfStore(int codeStore)
+        {
+            using (KosherListEntities db = new KosherListEntities())
+            {
+                var last30Date = DateTime.Now.AddDays(-30);
+                var updates = db.Updates_tbl.Where(x => x.dateVisit >= last30Date
+                && x.result == 3 && x.codeStore == codeStore).OrderByDescending(x => x.dateVisit).ToList();
+
+                return UpdatesConvertion.convertToListDto(updates);
+
+            }
+        }
+
+
+        public static List<UpdatesDto> GetWarningUpdatesOfStore(int codeStore)
+        {
+            using (KosherListEntities db = new KosherListEntities())
+            {
+                var last30Date = DateTime.Now.AddDays(-30);
+                var updates = db.Updates_tbl.Where(x => x.dateVisit >= last30Date
+                && x.result == 2 && x.codeStore == codeStore).OrderByDescending(x => x.dateVisit).ToList();
+
+                return UpdatesConvertion.convertToListDto(updates);
+
+            }
+        }
+
         public static UpdatesDto getUpdatesById(int update)
         {
             using (KosherListEntities db = new KosherListEntities())

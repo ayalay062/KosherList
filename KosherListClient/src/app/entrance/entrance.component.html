@@ -1,19 +1,18 @@
-<p>entrance works!</p>
-<form [formGroup]="form" (ngSubmit)="searchuser()">
+<form class="form-wrapper" [formGroup]="form" (ngSubmit)="searchuser()">
     <div class="example-container">
-      <mat-form-field appearance="fill">
-        <mat-label >שם משתמש</mat-label>
-        <input type="text"   formControlName="userUserName"  required matInput>
-        <!-- <mat-error *ngIf="form.get('userUserName').errors?.required"> חובה להזין שם.</mat-error> -->
-        <!-- [(ngModel)]="name" name="l" -->
-      </mat-form-field>
-      
-      <br>
-      <!-- [(ngModel)]="Password"  name="ls" -->
-      <mat-form-field appearance="fill">
-          <mat-label>סיסמא</mat-label>
-          <input type="text" formControlName="userPassword"  required  matInput [type]="hide ? 'password' : 'text'">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-form-field appearance="fill">
+            <mat-label>שם משתמש</mat-label>
+            <input type="text" formControlName="userUserName" required matInput>
+            <!-- <mat-error *ngIf="form.get('userUserName').errors?.required"> חובה להזין שם.</mat-error> -->
+            <!-- [(ngModel)]="name" name="l" -->
+        </mat-form-field>
+
+        <br>
+        <!-- [(ngModel)]="Password"  name="ls" -->
+        <mat-form-field appearance="fill">
+            <mat-label>סיסמא</mat-label>
+            <input type="text" formControlName="userPassword" required matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
@@ -23,7 +22,7 @@
         (click)="searchuser()"> -->
         <!-- <mat-error *ngIf="form.get('userUserName').errors?.required"> חובה להזין שם.</mat-error> -->
         <div *ngIf="flag">try again or<a routerLink="/register" routerLinkActive="active"> register"</a></div>
-        <div *ngIf="!flag" >"הצליח"</div>
+        <div *ngIf="!flag">"הצליח"</div>
         <!-- (click)="register()" -->
     </div>
-    </form>
+</form>

@@ -38,7 +38,18 @@ export class LoginComponent implements OnInit {
       } else {
         swal.fire("","הכניסה בוצעה בהצלחה!", "success");
         localStorage.setItem("userCurrent", JSON.stringify(myWorker));
-        this.router.navigate(["/updates"]);
+        if(myWorker.codeWorker ){
+
+           this.service.loginAsWorker.next(true);
+           this.router.navigate(["/updates"]);
+        }
+        else{
+
+          this.service.loginAsWorker.next(false);
+          this.router.navigate(["/stores"]);
+
+        }
+     
       }
     });
   }

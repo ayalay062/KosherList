@@ -1,0 +1,36 @@
+<div class="form-wrapper-large">
+    <h1 style="width: 200px;"> רשימת משגיחים</h1>
+
+    <mat-icon class="add-icon" (click)="openDialog();">add_circle_outline</mat-icon>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>קוד משגיח</th>
+                <th>שם</th>
+                <th>כתובת</th>
+                <th>פלאפון</th>
+                <th>מייל</th>
+                <th>פעולות</th>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let worker of workers">
+
+                <td>{{worker.codeWorker}}</td>
+                <td> {{worker.nameWorker}}</td>
+                <td> {{worker.addressWorker}}</td>
+                <td> {{worker.telWorker}}</td>
+                <td> {{worker.email}}</td>
+
+                <td>
+                    <mat-icon class="icon" (click)="openDialog(worker.codeWorker);">edit</mat-icon>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</div>

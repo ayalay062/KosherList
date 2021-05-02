@@ -1,41 +1,37 @@
-<p>add-edit-event works!</p>
-<div>add event
-</div>
-<form [formGroup]="form" (ngSubmit)="create()">
+<form class="form-wrapper-modal" [formGroup]="form" (ngSubmit)="create()">
+    <h1> עריכת מערכת שעות</h1>
 
-    <p>
-      <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill">
         <mat-label>שם חנות</mat-label>
         <mat-select formControlName="codeStore">
-          <mat-option *ngFor="let store of storesArrey" [value]="store.codeStore" >
-          <!-- (click)="saveStore(store.codeStore)"> -->
-            {{ store.nameStore }}
-          </mat-option>
+            <mat-option *ngFor="let store of storesArrey" [value]="store.codeStore">
+                <!-- (click)="saveStore(store.codeStore)"> -->
+                {{ store.nameStore }}
+            </mat-option>
         </mat-select>
-      </mat-form-field>
+    </mat-form-field>
+
+
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>תאריך</mat-label>
+            <input type="date" matInput formControlName="dateBegginig">
+        </mat-form-field>
     </p>
-  
-     <p>
+
+    <p>
         <mat-form-field appearance="legacy">
-          <mat-label>תאריך</mat-label>
-          <input type="date" matInput formControlName="dateBegginig"  >    
+            <mat-label>שעת כניסה</mat-label>
+            <input type="time" matInput formControlName="begginingTime">
         </mat-form-field>
-      </p>
+    </p>
 
-     <p>
+    <p>
         <mat-form-field appearance="legacy">
-          <mat-label>שעת כניסה</mat-label>
-          <input type="time" matInput formControlName="begginingTime"  >    
+            <mat-label>שעת יציאה</mat-label>
+            <input type="time" matInput formControlName="exitingTime">
         </mat-form-field>
-      </p>
+    </p>
 
-      <p>
-        <mat-form-field appearance="legacy">
-          <mat-label>שעת יציאה</mat-label>
-          <input type="time" matInput formControlName="exitingTime"  >    
-        </mat-form-field>
-      </p>
-
-      <button mat-button type="submit">עדכן / הוספה</button>
-    </form>
-
+    <button mat-button type="submit" class="btn-color">עדכן / הוספה</button>
+</form>

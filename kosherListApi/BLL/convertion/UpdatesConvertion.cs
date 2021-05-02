@@ -23,6 +23,17 @@ namespace BLL.convertion
             newUpdates.exitingTime = u.exitingTime;
             newUpdates.remarks = u.remarks;
             newUpdates.result = u.result;
+
+            try
+            {
+                if (u.Store_tbl != null)
+                {
+                    newUpdates.Store_tbl = StoreConvertion.convertToDto(u.Store_tbl);
+
+
+                }
+            } catch { }
+           
             return newUpdates;
         }
         public static List<UpdatesDto> convertToListDto(List<Updates_tbl> u)

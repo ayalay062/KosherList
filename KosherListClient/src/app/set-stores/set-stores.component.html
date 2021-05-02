@@ -1,0 +1,39 @@
+<div class="form-wrapper-large">
+    <h1 style="width: 200px;"> רשימת חנויות</h1>
+
+    <mat-icon class="add-icon" (click)="openDialog();">add_circle_outline</mat-icon>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>קוד חנות</th>
+                <th>שם</th>
+
+                <th>כתובת</th>
+                <th>סוג חנות</th>
+                <th>זמן פתיחה</th>
+                <th>זמן סגירה</th>
+                <th>פעולות</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let store of stores">
+
+                <td>{{store.codeStore}}</td>
+                <td> {{store.nameStore}}</td>
+                <td> {{store.addressStore}}</td>
+                <td *ngIf="store.clasificationStore"> {{store.clasificationStore == 1? "יצור חיצוני" : "יצור פנימי"}}</td>
+                <td *ngIf="!store.clasificationStore"></td>
+                <td> {{store.activityTimeStart}}</td>
+                <td> {{store.activityTimeEnd}}</td>
+
+                <td>
+                    <mat-icon class="icon" (click)="openDialog(store.codeStore);">edit</mat-icon>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</div>

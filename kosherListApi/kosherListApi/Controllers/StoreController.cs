@@ -23,12 +23,44 @@ namespace kosherListApi.Controllers
            
         }
 
+        [HttpGet]
+        [Route("getBadStores")]
+        public IHttpActionResult getBadStores()
+        {
+            return Ok(StoreBL.GetBadStores());
+
+        }
+
+        [HttpGet]
+        [Route("getWarningStores")]
+        public IHttpActionResult getWarningStores()
+        {
+            return Ok(StoreBL.GetWarningStores());
+
+        }
+
+
+        [HttpGet]
+        [Route("GetStoreByCode/{code}")]
+        public IHttpActionResult GetStoreByCode(int code)
+        {
+            return Ok(StoreBL.GetStoreByCode(code));
+
+        }
         [HttpPost]
         [Route("AddStore")]
         public IHttpActionResult AddStore(StoreDto store)
         
         {
             return Ok(StoreBL.AddStore(store));
+
+        }
+        [HttpPost]
+        [Route("UpdateStore")]
+        public IHttpActionResult UpdateStore(StoreDto store)
+
+        {
+            return Ok(StoreBL.UpdateStore(store));
 
         }
     }

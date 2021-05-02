@@ -34,12 +34,12 @@ namespace BLL.services
             }
         }
 
-        public static UsersDto Login(UsersDto user)
+        public static UsersDto Login(string username,string password)
         {
             using (KosherListEntities db = new KosherListEntities())
             {
 
-                var userLogin = db.Users_tbl.FirstOrDefault(x => x.userPassword == user.userPassword && x.userUserName == user.userUserName);
+                var userLogin = db.Users_tbl.FirstOrDefault(x => x.userPassword == password && x.userUserName == username);
                 if (userLogin == null) return null;
 
                 return UsersConvertion.convertToDto(userLogin) ;

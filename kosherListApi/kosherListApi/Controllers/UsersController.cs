@@ -32,13 +32,6 @@ namespace kosherListApi.Controllers
         }
 
 
-        [HttpPost]
-        [Route("login")]
-        public IHttpActionResult Login(UsersDto user)
-        {
-            return Ok(UsersBL.Login(user));
-
-        }
     }
 }
 //    api/users/getAllUsers

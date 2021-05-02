@@ -25,14 +25,26 @@ namespace kosherListApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetBadUpdates")]
-        public IHttpActionResult GetBadUpdates()
+        [Route("GetBadUpdatesOfStore/{code}")]
+        public IHttpActionResult GetBadUpdatesOfStore(int code)
         {
-            return Ok(UpdatesBL.GetBadUpdates());
+            return Ok(UpdatesBL.GetBadUpdatesOfStore(code));
+        }
+        [HttpGet]
+        [Route("getAllWorkerUpdates/{code}")]
+        public IHttpActionResult getAllWorkerUpdates(int code)
+        {
+            return Ok(UpdatesBL.GetAllWorkerUpdates(code));
         }
 
         
 
+        [HttpGet]
+        [Route("GetWarningUpdatesOfStore/{code}")]
+        public IHttpActionResult GetWarningUpdatesOfStore(int code)
+        {
+            return Ok(UpdatesBL.GetWarningUpdatesOfStore(code));
+        }
 
 
         [HttpGet]
@@ -44,7 +56,13 @@ namespace kosherListApi.Controllers
 
         
 
-        
+    [HttpPost]
+        [Route("UpdateUpdate")]
+        public IHttpActionResult UpdateUpdate(UpdatesDto Update)
+        {
+            return Ok(UpdatesBL.UpdateUpdate(Update));
+
+        }
 
         [HttpPost]
         [Route("AddUpdate")]

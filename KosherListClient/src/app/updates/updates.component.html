@@ -1,105 +1,102 @@
-<router-outlet>
-</router-outlet>
-
-<h1>שלום {{userCurrent.nameWorker}}</h1>
-<form [formGroup]="form" (ngSubmit)="create()">
-
+<form class="form-wrapper width-500" [formGroup]="form" (ngSubmit)="create()">
+    <h1>שלום {{userCurrent && userCurrent.nameWorker? userCurrent.nameWorker : ""}}</h1>
     <mat-form-field>
         <mat-label>שם חנות</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let store of storesArrey" [value]="storesArrey" 
-          (click)="saveStore(store.codeStore)">
-            {{ store.nameStore }}
-          </mat-option>
+        <mat-select formControlName="codeStore">
+            <mat-option *ngFor="let store of storesArrey" [value]="store.codeStore" (click)="saveStore(store.codeStore)">
+                {{ store.nameStore }}
+            </mat-option>
         </mat-select>
-      </mat-form-field>
-   
+    </mat-form-field>
+
 
     <section>
         <div class="example-button-row">
-            <button mat-button type="button" (click)="btnEntry()">כניסה</button>
-            <p>
-                <mat-form-field appearance="legacy">
-                    <mat-label>תאריך ושעת כניסה</mat-label>
-                    <input matInput formControlName="begginingTime" type="datetime-local">
-                </mat-form-field>
-            </p>
-
-        </div><br>
-
-        <div class="example-button-row">
-            <button mat-button type="button" (click)="btnExit()">יציאה</button>
+            <button mat-button type="button" class="btn-red" (click)="btnExit()">יציאה</button><br>
             <mat-form-field appearance="legacy">
                 <mat-label>תאריך ושעת יציאה</mat-label>
                 <input matInput formControlName="exitingTime" type="datetime-local">
             </mat-form-field>
         </div><br>
-
-
+        <div class="example-button-row">
+            <button class="btn-red" mat-button type="button" (click)="btnEntry()">כניסה</button>
+            <br>
+            <mat-form-field appearance="legacy">
+                <mat-label>תאריך ושעת כניסה</mat-label>
+                <input matInput formControlName="begginingTime" type="datetime-local">
+            </mat-form-field>
+        </div><br>
     </section>
-    <br>
-    <!-- <div>
-  <mat-form-field appearance="fill">
-    <mat-label>תאריך</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-</div> -->
-<p>
 
-<mat-form-field class="example-full-width">
-    <mat-label>הערות</mat-label>
-    <textarea matInput formControlName="remarks"></textarea>
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>הערות</mat-label>
+        <textarea matInput formControlName="remarks"></textarea>
+    </mat-form-field>
 
 
-        <!-- <mat-form-field appearance="legacy">
+    <!-- <mat-form-field appearance="legacy">
             <mat-label>הערות</mat-label>
             <input matInput formControlName="remarks">
         </mat-form-field> -->
-    </p>
+
     <label id="example-radio-group-label">תוצאה</label>
     <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="result" name="radio">
-        <mat-radio-button class="example-radio-button" *ngFor="let test of choiceTest" [value]="test">
-            {{test}}
+        <mat-radio-button class="example-radio-button" [value]="1">
+            תקין
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button" [value]="2">
+            טעון בדיקה
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button" [value]="3">
+            גרוע
         </mat-radio-button>
     </mat-radio-group>
-    <button mat-button type="submit" [disabled]="!form.valid">סיים עדכון</button>
+    <button mat-button type="submit" class="btn-color" [disabled]="!form.valid">סיים עדכון</button>
 
-    
+
 </form>
+<div class="table-wrapper">
 
-<mat-table [dataSource]="tableWorkHours" class="mat-elevation-z8">
-    <!-- dateTime Column -->
-    <ng-container matColumnDef="dateTime">
-      <mat-header-cell *matHeaderCellDef> תאריך </mat-header-cell>
-      <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.dateTime}} </mat-cell>
-    </ng-container>
-  
-    <!-- codeStore Column -->
-    <ng-container matColumnDef="codeStore">
-      <mat-header-cell *matHeaderCellDef> שם חנות </mat-header-cell>
-      <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.codeStore}} </mat-cell>
-    </ng-container>
-  
-    <!-- begginingTime Column -->
-    <ng-container matColumnDef="begginingTime">
-      <mat-header-cell *matHeaderCellDef> שעת כניסה </mat-header-cell>
-      <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.begginingTime}} </mat-cell>
-    </ng-container>
-  
-    <!-- exitingTime Column -->
-    <ng-container matColumnDef="exitingTime">
-      <mat-header-cell *matHeaderCellDef> שעת יציאה </mat-header-cell>
-      <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.exitingTime}} </mat-cell>
-    </ng-container>
-    
-    <ng-container matColumnDef="updates">
-      <mat-header-cell *matHeaderCellDef> עידכון</mat-header-cell>
-      <mat-cell *matCellDef="let tableWorkHours"> <button (click)="getUpdateById(tableWorkHours.updatesId)">עידכון</button> </mat-cell>
-    </ng-container>
-  
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+    <h1>דיווחים קודמים</h1>
+    <mat-table [dataSource]="tableWorkHours" class="mat-elevation-z8">
+        <!-- dateTime Column -->
+        <ng-container matColumnDef="dateTime">
+            <mat-header-cell *matHeaderCellDef> תאריך </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.dateTime}} </mat-cell>
+        </ng-container>
+
+        <!-- codeStore Column -->
+        <ng-container matColumnDef="codeStore">
+            <mat-header-cell *matHeaderCellDef> שם חנות </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.Store_tbl ? tableWorkHours.Store_tbl.nameStore:tableWorkHours.Store_tbl.codeStore }} </mat-cell>
+        </ng-container>
+
+        <!-- begginingTime Column -->
+        <ng-container matColumnDef="begginingTime">
+            <mat-header-cell *matHeaderCellDef> שעת כניסה </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.begginingTime}} </mat-cell>
+        </ng-container>
+
+        <!-- exitingTime Column -->
+        <ng-container matColumnDef="exitingTime">
+            <mat-header-cell *matHeaderCellDef> שעת יציאה </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.exitingTime}} </mat-cell>
+        </ng-container>
+        <!-- exitingTime Column -->
+        <ng-container matColumnDef="result">
+            <mat-header-cell *matHeaderCellDef> תוצאה </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.result == 1?"תקין": tableWorkHours.result == 2?"טעון בדיקה":"גרוע"}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="updates">
+            <mat-header-cell *matHeaderCellDef> עידכון</mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours">
+                <!-- <button>עידכון</button>  -->
+                <mat-icon style="cursor: pointer;" (click)="getUpdateById(tableWorkHours.updatesId)">edit</mat-icon>
+
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

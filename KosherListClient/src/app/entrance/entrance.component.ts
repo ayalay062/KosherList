@@ -29,7 +29,7 @@ export class EntranceComponent implements OnInit {
   flag:boolean=false;
     searchuser(){
     const Worker = <Worker> this.form.value;
-    this.service.getWorker()
+    this.service.getWorkers()
     .subscribe(t=>{
       this.myWorker=t.find(y=>y.nameWorker==Worker.nameWorker
          &&y.codeWorker==Worker.codeWorker

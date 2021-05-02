@@ -1,17 +1,20 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <!-- <button mat-icon-button>
+        <!-- <button mat-icon-button>
         <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
       </button> -->
-      <!-- <h1>SimpleCRM</h1> -->
-      <span class="menu-spacer"></span>
-      <div>
-        <a mat-button routerLink="login" > התחברות </a>
-        <a mat-button routerLink="register" > רישום משגיח חדש </a>
-        <a mat-button routerLink="stores" > רישום חנות חדשה </a>
-        <a mat-button routerLink="updates" > עידכונים למשגיח</a>
-        <a mat-button routerLink="WorkerScheduler">מערכת שעות  </a>
-        
-      </div>
+        <!-- <h1>SimpleCRM</h1> -->
+        <span class="menu-spacer"></span>
+        <div>
+            <a mat-button routerLink="login" routerLinkActive="active_link"> התחברות </a>
+            <a mat-button routerLink="workers" *ngIf="loginAsWorker == false" routerLinkActive="active_link"> משגיחים </a>
+            <a mat-button routerLink="stores" *ngIf="loginAsWorker == false" routerLinkActive="active_link"> חנויות </a>
+            <a mat-button routerLink="bad-stores" *ngIf="loginAsWorker == false" routerLinkActive="active_link"> חנויות בעיתיות </a>
+            <a mat-button routerLink="WorkerScheduler" *ngIf="loginAsWorker == false" routerLinkActive="active_link"> ניהול מערכת שעות </a>
+
+            <a mat-button routerLink="updates" *ngIf="loginAsWorker == true" routerLinkActive="active_link"> עדכון</a>
+            <a mat-button routerLink="WorkerScheduler" *ngIf="loginAsWorker == true" routerLinkActive="active_link">מערכת שעות  </a>
+
+        </div>
     </mat-toolbar-row>
-  </mat-toolbar>
+</mat-toolbar>

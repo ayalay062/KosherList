@@ -27,6 +27,13 @@ namespace kosherListApi.Controllers
             return Ok(WorkerBL.AddWorker(worker));
 
         }
+        [HttpGet]
+        [Route("GetWorkerByCode/{code}")]
+        public IHttpActionResult GetWorkerByCode(int code)
+        {
+            return Ok(WorkerBL.GetWorkerByCode(code));
+
+        }
 
         [HttpPost]
         [Route("UpdateWorkerShcedule")]
@@ -35,6 +42,16 @@ namespace kosherListApi.Controllers
             return Ok(WorkerBL.UpdateWorkerShcedule(worker));
 
         }
+
+        [HttpPost]
+        [Route("UpdateWorker")]
+        public IHttpActionResult UpdateWorker(WorkerDto worker)
+        {
+            return Ok(WorkerBL.UpdateWorker(worker));
+
+        }
+
+        
         [HttpGet]
         [Route("GetWorkerWithScheduler/{workerCode}")]
         public IHttpActionResult GetWorkerWithScheduler(int workerCode)
@@ -47,7 +64,12 @@ namespace kosherListApi.Controllers
         [Route("login")]
         public IHttpActionResult Login(WorkerDto worker)
         {
-            return Ok(WorkerBL.Login(worker));
+            var workerRes = WorkerBL.Login(worker);
+            if (workerRes == null)
+            {
+                return Ok(UsersBL.Login(worker.nameWorker, worker.passwordWorker));
+            }
+            return Ok(workerRes);
 
         }
     }

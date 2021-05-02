@@ -1,66 +1,73 @@
-<form [formGroup]="form" (ngSubmit)="register()">
+<form class="form-wrapper-modal" [formGroup]="form" (ngSubmit)="save()">
+    <h1 *ngIf="data && data.codeWorker;else:newWorker">עדכון משגיח</h1>
+    <ng-template #newWorker>
+        <h1>הוספת משגיח</h1>
+    </ng-template>
 
-<p>
-    <mat-form-field appearance="legacy">
-      <mat-label>שם משגיח</mat-label>
-      <input type="text" formControlName="nameWorker" required matInput >    
-    </mat-form-field>
-  </p>
 
-  <p>
-    <mat-form-field appearance="legacy">
-      <mat-label>כתובת</mat-label>
-      <input type="text" formControlName="addressWorker" required matInput >    
-    </mat-form-field>
-  </p>
 
-  <p>
-    <mat-form-field appearance="legacy">
-      <mat-label>טלפון</mat-label>
-      <input type="tel" formControlName="telWorker" required  matInput >    
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="legacy">
-      <mat-label>תאריך התחלה</mat-label>
-      <input type="date" formControlName="dateStart" required matInput >    
-    </mat-form-field>
-  </p>
-  <p>
-
-    <mat-form-field appearance="legacy">
-      <mat-label>מייל</mat-label>
-      <input type="text" formControlName="email" matInput >    
-    </mat-form-field>
-  </p>
-  
-  <p>
-    <label>האם נייד?</label>
     <br>
-    <mat-radio-group aria-label="Select an option" formControlName="mobility">
-        <mat-radio-button  value=true (click)="saveValueRadio($event,true)" >כן
-        </mat-radio-button><br>
-        <mat-radio-button  value=false (click)="saveValueRadio($event,false)"> לא
-        </mat-radio-button>
-      </mat-radio-group>
-  </p>
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>שם משגיח</mat-label>
+            <input type="text" formControlName="nameWorker" required matInput>
+        </mat-form-field>
+    </p>
 
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label>סיסמא</mat-label>
-      <input type="text" formControlName="passwordWorker" required  matInput [type]="hide ? 'password' : 'text'">
-      <!-- [(ngModel)]="worker.password" צריך להוסיף בטבלה של worker ואז לשים בתוך באינפוט  -->
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>כתובת</mat-label>
+            <input type="text" formControlName="addressWorker" required matInput>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>טלפון</mat-label>
+            <input type="tel" formControlName="telWorker" required matInput>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>תאריך התחלה</mat-label>
+            <input type="date" formControlName="dateStart" required matInput>
+        </mat-form-field>
+    </p>
+    <p>
+
+        <mat-form-field appearance="legacy">
+            <mat-label>מייל</mat-label>
+            <input type="email" formControlName="email" matInput>
+        </mat-form-field>
+    </p>
+
+    <p>
+
+        <mat-radio-group aria-label="Select an option" formControlName="mobility">
+            <mat-radio-button value="false" (click)="saveValueRadio($event,true)">העובד נייד
+            </mat-radio-button>
+            <mat-radio-button value="true" (click)="saveValueRadio($event,false)"> העובד לא נייד
+            </mat-radio-button>
+        </mat-radio-group>
+        <!-- <label>?האם נייד</label> -->
+    </p>
+
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>סיסמא</mat-label>
+            <input type="text" formControlName="passwordWorker" required matInput [type]="hide ? 'password' : 'text'">
+            <!-- [(ngModel)]="worker.password" צריך להוסיף בטבלה של worker ואז לשים בתוך באינפוט  -->
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-    </mat-form-field>
-    <!-- <mat-form-field appearance="fill" >
+        </mat-form-field>
+        <!-- <mat-form-field appearance="fill" >
       <mat-label >סיסמא</mat-label>
       <input type="text"  name="wp" required matInput [type]="hide ? 'password' : 'text'">    
        [(ngModel)]="worker.password" צריך להוסיף בטבלה של worker ואז לשים בתוך באינפוט 
     </mat-form-field> -->
-  </p>
-  
-  <button mat-button type="submit">רשום עובד חדש</button>
-      
+    </p>
+
+    <button mat-button type="submit" [disabled]="!form.valid " class="btn-color">שמור</button>
+
 </form>
