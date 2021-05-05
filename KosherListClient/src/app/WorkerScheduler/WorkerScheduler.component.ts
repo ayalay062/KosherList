@@ -65,6 +65,7 @@ export class WorkerSchedulerComponent {
     this.serviceSchedular
       .getWorkerSchedulerById(this.userCurrent.codeWorker)
       .subscribe((x) => {
+        this.events = [];
         this.scheduleDate = x;
         var curr = new Date(); // get current date var curr = new Date; // get current date
         var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
@@ -108,13 +109,12 @@ export class WorkerSchedulerComponent {
             if (countHours === 0 && storeId != null && h < 23) h--;
             else if (storeId != null) {
               //add event – Push to array events
-              var startDateEvent = this.addHours(curEventDate, startHour);
-              var endDateEvent = this.addHours(startDateEvent, countHours);
+           
               this.events.push({
-                start: startDateEvent,
-                end: endDateEvent,
+                 start:addHours(startOfDay(curEventDate), startHour),
+                  end: addHours(startOfDay(curEventDate), startHour + countHours),
                 title: this.nameStoreById(storeId),
-                color: colors.yellow,
+                color: colors.red,
                 actions: this.actions,
               });
               // this.addEvent1(storeId.toString(),startDateEvent,endDateEvent);

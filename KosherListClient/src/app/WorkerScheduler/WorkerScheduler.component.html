@@ -1,21 +1,22 @@
 <br>
+<div class="wrapper">
 <div class="row text-center">
 
     <div class="col-md-4">
         <!-- <button (click)="setEventModal()" style="    margin-top: 10px;" class="btn-color">הוספה</button> -->
     </div>
     <div class="col-md-4">
-        <h2 class="form-h1">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h2>
+        <h2 class="form-h1">לוח שבועי</h2>
     </div>
     <div class="col-md-4">
 
     </div>
 </div>
 <br />
-<div style="max-width: 90%;
-   margin: auto;" [ngSwitch]="view">
+<div [ngSwitch]="view">
 
-    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" [refresh]="refresh">
+    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" 
+    [events]="events" [refresh]="refresh">
     </mwl-calendar-week-view>
-
+</div>
 </div>

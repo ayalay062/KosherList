@@ -512,8 +512,23 @@ td.mat-footer-cell {
     text-align: center;
 }
 
-.cal-week-view mwl-calendar-week-view-hour-segment,
+/* .cal-week-view mwl-calendar-week-view-hour-segment,
 .cal-week-view .cal-hour-segment,
 .cal-week-view .cal-hour-segment {
     height: 20px!important;
+} */
+.cal-week-view .cal-time-events .cal-event .cal-event-title {
+        color: #3f51b5;
+    font-size: 18px;
+}
+.cal-week-view .cal-day-headers span {
+    display: none;
+}
+
+.wrapper{
+        width: 90%;
+    margin:auto;
+    max-width: 900px;
+    background-color:white;
+    opacity:0.9;
 }

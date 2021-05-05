@@ -27,6 +27,7 @@
   import { Worker } from "../classes/Worker";
   import { WorkerScheduler } from "../classes/workerScheduler";
   import { StoreService } from "../store.service";
+    import { WorkerService } from "../worker.service";
   import { Store } from "../classes/Store";
   import { AddEditEventComponent } from "../add-edit-event/add-edit-event.component";
   import { MatDialog } from "@angular/material";
@@ -46,14 +47,22 @@
     styleUrls: ['./all-workers-schedulers.component.css']
   })
   export class AllWorkersSchedulersComponent {
+    workers:Worker[];
+    workerId:number;
     ngOnInit() {
       this.serviceStore.getStores().subscribe((x) => (this.stores = x));
-      this.userCurrent = <Worker>JSON.parse(localStorage.getItem("userCurrent"));
-      this.getWorkerScheduler();
+      this.workerService.getWorkers().subscribe((x) => {
+        this.workers = x;
+        this.workerId = this.workers[0].codeWorker;
+        this.getWorkerScheduler();
+      });
+
+
+      
     }
     setEventModal(startDate?: Date) {
       const dialogRef = this.dialog.open(AddEditEventComponent, {
-        data: { startDate },
+        data: { startDate, workerCode: this.workerId },
       });
       dialogRef.afterClosed().subscribe((result) => {
         console.log(`Dialog result: ${result}`);
@@ -61,10 +70,17 @@
         //TODO - function drawEvents
       });
     }
+    getWorkerSchedulerId(id)
+    {
+this.workerId = id;
+this.getWorkerScheduler();
+
+    }
     getWorkerScheduler() {
       this.serviceSchedular
-        .getWorkerSchedulerById(this.userCurrent.codeWorker)
+        .getWorkerSchedulerById( this.workerId)
         .subscribe((x) => {
+          this.events = [];
           this.scheduleDate = x;
           var curr = new Date(); // get current date var curr = new Date; // get current date
           var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
@@ -109,12 +125,15 @@
               else if (storeId != null) {
                 //add event – Push to array events
                 var startDateEvent = this.addHours(curEventDate, startHour);
-                var endDateEvent = this.addHours(startDateEvent, countHours);
+                   var endDateEvent = this.addHours(startDateEvent, countHours);
+
+
+
                 this.events.push({
-                  start: startDateEvent,
-                  end: endDateEvent,
+                  start:addHours(startOfDay(curEventDate), startHour),
+                  end: addHours(startOfDay(startDateEvent), startHour + countHours),
                   title: this.nameStoreById(storeId),
-                  color: colors.yellow,
+                  color: colors.red,
                   actions: this.actions,
                 });
                 // this.addEvent1(storeId.toString(),startDateEvent,endDateEvent);
@@ -187,7 +206,8 @@
       public dialog: MatDialog,
       private modal: NgbModal,
       private serviceSchedular: WorkerSchedulerService,
-      private serviceStore: StoreService
+      private serviceStore: StoreService,
+      private workerService: WorkerService
     ) {}
   
     dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -223,7 +243,7 @@
     }
   
     handleEvent(action: string, event: CalendarEvent): void {
-      this.modalData = { event, action };
+      this.modalData = { event, action};
       this.modal.open(this.modalContent, { size: "lg" });
     }
 

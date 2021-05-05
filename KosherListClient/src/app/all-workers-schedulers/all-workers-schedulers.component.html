@@ -1,22 +1,28 @@
 <br>
-<div class="row text-center">
+<div class="wrapper">
+<div class="row text-center" >
 
+    <div class="col-md-4">
+    <label style="margin-right:10px">משגיח:</label> &nbsp;
+        <select class="form-control" style="max-width:200px;display: inline-block;"
+       (ngModelChange)="getWorkerSchedulerId($event);"  [(ngModel)]="workerId">
+            <option *ngFor="let worker of workers" [value]="worker.codeWorker">
+                {{worker.nameWorker}}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <h2 class="form-h1">לוח שבועי</h2>
+    </div>
     <div class="col-md-4">
         <button (click)="setEventModal()" style="    margin-top: 10px;" class="btn-color">הוספה</button>
     </div>
-    <div class="col-md-4">
-        <h2 class="form-h1">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h2>
-    </div>
-    <div class="col-md-4">
-
-    </div>
 </div>
 <br />
-<div style="max-width: 90%;
-   margin: auto;" [ngSwitch]="view">
+<div [ngSwitch]="view">
     <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventTimesChanged)="eventTimesChanged($event)">
         (eventClicked)="handleEvent('Clicked', $event.event)"
     </mwl-calendar-week-view>
     <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
     </mwl-calendar-day-view>
-</div>
+</div></div>

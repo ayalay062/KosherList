@@ -14,8 +14,16 @@
 
     <p>
         <mat-form-field appearance="legacy">
-            <mat-label>תאריך</mat-label>
-            <input type="date" matInput formControlName="dateBegginig">
+            <mat-label>יום בשבוע</mat-label>
+              <mat-select formControlName="dateBegginig">
+            <mat-option *ngFor="let day of days" [value]="day.value">
+                <!-- (click)="saveStore(store.codeStore)"> -->
+                {{ day.name }}
+            </mat-option>
+        </mat-select>
+
+
+            <!-- <input type="date" matInput formControlName="dateBegginig"> -->
         </mat-form-field>
     </p>
 
