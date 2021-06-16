@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
           this.form = this.fb.group(response);
           this.form.patchValue({
             mobility: '' + response.mobility,
-
+            dateStart: '' + new Date(response.dateStart).toISOString().substring(0,10),
           });
         });
     }
@@ -51,11 +51,6 @@ export class RegisterComponent implements OnInit {
   hide: boolean = true;
   flag: any = false;
   flagUser: boolean;
-
-  // worker: Worker = new Worker();
-
-  // if (this.worker.email.indexOf("@") > -1)
-  //  this.flagMail = true;
 
   saveValueRadio(event: MatRadioChange, data) {
     this.form.value.mobility = data;
@@ -78,21 +73,4 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  // this.service.getWorker()
-  //   .subscribe(t => {
-  //    let workertmp:Worker = t.find(y => y.nameWorker == this.worker.nameWorker);
-  //     if (workertmp === undefined && this.flagMail == true) {
-  //       this.service.postWorker(this.worker)
-  //       .subscribe(r => {
-  //         if (r) { this.flag = true; }
-  //         else { this.flag = false }
-  //         alert(r);
-  //         console.log(r);
-  //       });
-  // }
-  // else {
-  //   this.worker=workertmp;
-  //   this.flagUser = true;
-  // }
-  // });
 }
