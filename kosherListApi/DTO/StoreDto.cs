@@ -15,7 +15,6 @@ namespace DTO
         public Nullable<System.TimeSpan> activityTimeStart { get; set; }
         public Nullable<System.TimeSpan> activityTimeEnd { get; set; }
 
-
         public Nullable<int> countResultInfo { get; set; }
     }
 }

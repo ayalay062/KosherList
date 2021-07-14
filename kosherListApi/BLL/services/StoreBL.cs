@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 using BLL.convertion;
 namespace BLL.services
 {
-   public class StoreBL
+    public class StoreBL
     {
 
-        public static List<StoreDto> GetAllStores() {
-            using (KosherListEntities db = new KosherListEntities()) {
+        public static List<StoreDto> GetAllStores()
+        {
+            using (KosherListEntities db = new KosherListEntities())
+            {
 
                 var stores = db.Store_tbl.ToList();
                 return StoreConvertion.convertToListDto(stores);
@@ -25,7 +27,7 @@ namespace BLL.services
             using (KosherListEntities db = new KosherListEntities())
             {
 
-                var store = db.Store_tbl.FirstOrDefault(x=>x.codeStore == code);
+                var store = db.Store_tbl.FirstOrDefault(x => x.codeStore == code);
                 return StoreConvertion.convertToDto(store);
 
             }
@@ -35,20 +37,20 @@ namespace BLL.services
         {
             using (KosherListEntities db = new KosherListEntities())
             {
-                var newStore = StoreConvertion.convertToStore(store); 
+                var newStore = StoreConvertion.convertToStore(store);
                 db.Store_tbl.Add(newStore);
                 db.SaveChanges();
                 return true;
 
             }
         }
-
+        //שליפה של החנויות הבעייתיות ב30 יום האחרונים
         public static List<StoreDto> GetBadStores()
         {
             using (KosherListEntities db = new KosherListEntities())
             {
                 var last30Date = DateTime.Now.AddDays(-30);
-
+                //שליפת החנויות שיש להן 2 עדכונים או יותר גרועים ב30 יום האחרונים
                 var updates = db.Updates_tbl.Where(x => x.dateVisit >= last30Date
                 && x.result == 3
                 ).GroupBy(x => new { codeStore = x.codeStore, result = x.result })
@@ -67,7 +69,7 @@ namespace BLL.services
         }
 
 
-          public static List<StoreDto> GetWarningStores()
+        public static List<StoreDto> GetWarningStores()
         {
             using (KosherListEntities db = new KosherListEntities())
             {

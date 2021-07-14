@@ -44,6 +44,8 @@ import { SetWorkersComponent } from "./set-workers/set-workers.component";
 import { AllWorkersSchedulersComponent } from "./all-workers-schedulers/all-workers-schedulers.component";
 import { BadStoresComponent } from './bad-stores/bad-stores.component';
 import { ViewStoreUpdatesModalComponent } from './view-store-updates-modal/view-store-updates-modal.component';
+import { WorkersUpdatesComponent } from './workers-updates/workers-updates.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import { ViewStoreUpdatesModalComponent } from './view-store-updates-modal/view-
     AllWorkersSchedulersComponent,
     BadStoresComponent,
     ViewStoreUpdatesModalComponent,
+    WorkersUpdatesComponent,
+    HomeComponent,
   ],
   entryComponents: [AddEditEventComponent,StoreComponent,RegisterComponent,ViewStoreUpdatesModalComponent],
 

@@ -1,0 +1,58 @@
+<div class="form-wrapper-large">
+    <h1 style="width: 250px;"> דיווח שעות משגיחים</h1>
+    <br>
+    <div class="row text-center">
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-4" style="direction: rtl;">
+            <label style="margin-right:10px">משגיח:</label> &nbsp;
+            <select class="form-control" style="max-width:200px;display: inline-block;" (ngModelChange)="getWorkerSchedulerId($event);" [(ngModel)]="workerId">
+            <option *ngFor="let worker of workers" [value]="worker.codeWorker">
+                {{worker.nameWorker}}
+            </option>
+        </select>
+        </div>
+
+    </div>
+    <br />
+
+    <mat-table [dataSource]="tableWorkHours" class="mat-elevation-z8">
+        <!-- dateTime Column -->
+        <ng-container matColumnDef="dateTime">
+            <mat-header-cell *matHeaderCellDef> תאריך </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.dateVisit | date:'dd/MM/yyyy'}} </mat-cell>
+        </ng-container>
+
+        <!-- codeStore Column -->
+        <ng-container matColumnDef="codeStore">
+            <mat-header-cell *matHeaderCellDef> שם חנות </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.Store_tbl ? tableWorkHours.Store_tbl.nameStore:tableWorkHours.Store_tbl.codeStore }} </mat-cell>
+        </ng-container>
+
+        <!-- begginingTime Column -->
+        <ng-container matColumnDef="begginingTime">
+            <mat-header-cell *matHeaderCellDef> שעת כניסה </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.begginingTime}} </mat-cell>
+        </ng-container>
+
+        <!-- exitingTime Column -->
+        <ng-container matColumnDef="exitingTime">
+            <mat-header-cell *matHeaderCellDef> שעת יציאה </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.exitingTime}} </mat-cell>
+        </ng-container>
+        <!-- exitingTime Column -->
+        <ng-container matColumnDef="result">
+            <mat-header-cell *matHeaderCellDef> תוצאה </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.result == 1?"תקין": tableWorkHours.result == 2?"טעון בדיקה":"גרוע"}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="remarks">
+            <mat-header-cell *matHeaderCellDef> הערות </mat-header-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.remarks}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+
+</div>

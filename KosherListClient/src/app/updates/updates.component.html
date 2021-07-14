@@ -62,7 +62,7 @@
         <!-- dateTime Column -->
         <ng-container matColumnDef="dateTime">
             <mat-header-cell *matHeaderCellDef> תאריך </mat-header-cell>
-            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.dateTime}} </mat-cell>
+            <mat-cell *matCellDef="let tableWorkHours"> {{tableWorkHours.dateVisit | date:'dd/MM/yyyy'}} </mat-cell>
         </ng-container>
 
         <!-- codeStore Column -->

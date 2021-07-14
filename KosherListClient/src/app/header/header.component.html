@@ -6,15 +6,21 @@
         <!-- <h1>SimpleCRM</h1> -->
         <span class="menu-spacer"></span>
         <div>
-            <a mat-button routerLink="login" routerLinkActive="active_link"> התחברות </a>
+            <a mat-button routerLink="home" routerLinkActive="active_link"> ראשי </a>
+
+            <a mat-button routerLink="login" *ngIf="loginAsWorker == null" routerLinkActive="active_link"> התחברות </a>
             <a mat-button routerLink="workers" *ngIf="loginAsWorker == false" routerLinkActive="active_link"> משגיחים </a>
+            <a mat-button routerLink="workers-updates" *ngIf="loginAsWorker == false" routerLinkActive="active_link"> דיווח שעות משגיחים </a>
+
             <a mat-button routerLink="stores" *ngIf="loginAsWorker == false" routerLinkActive="active_link"> חנויות </a>
             <a mat-button routerLink="bad-stores" *ngIf="loginAsWorker == false" routerLinkActive="active_link"> חנויות בעיתיות </a>
             <a mat-button routerLink="workers-schedulers" *ngIf="loginAsWorker == false" routerLinkActive="active_link"> ניהול מערכת שעות </a>
 
             <a mat-button routerLink="updates" *ngIf="loginAsWorker == true" routerLinkActive="active_link"> עדכון</a>
             <a mat-button routerLink="WorkerScheduler" *ngIf="loginAsWorker == true" routerLinkActive="active_link">מערכת שעות  </a>
-
+            <a mat-button class="logout" (click)="logout();" *ngIf="loginAsWorker == false || loginAsWorker == true">
+                <mat-icon>login</mat-icon>
+            </a>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>

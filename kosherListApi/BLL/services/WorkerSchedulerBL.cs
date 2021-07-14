@@ -45,15 +45,17 @@ namespace BLL.services
 
             }
         }
-
+        //עדכון שיבוץ יומן למשגיח
         public static bool setWorkerScheduler(int workerId, int codeStore, int day,int  hourEnd,int hourStart)
         {
             using (KosherListEntities db = new KosherListEntities())
             {
                 var countHourse = hourEnd - hourStart;
+                //מעבר על 24 שעות ועדכון של שעה + יום בשבוע רלוונטי
                 for (; hourStart < hourEnd; hourStart++)
                 {
                     var scheduleHour = db.WorkerScheduler_tbl.FirstOrDefault(x => x.workerId == workerId && x.hour == hourStart);
+                   //בדיקה של יום 
                     switch (day)
                     {
                         case 1:

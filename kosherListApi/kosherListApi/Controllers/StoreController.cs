@@ -12,7 +12,6 @@ namespace kosherListApi.Controllers
 {
  
     [RoutePrefix("api/store")]
-  
     public class StoreController : ApiController
     {
         [HttpGet]

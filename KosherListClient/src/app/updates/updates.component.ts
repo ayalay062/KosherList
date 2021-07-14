@@ -49,7 +49,16 @@ export class UpdatesComponent implements OnInit {
   getUpdates() {
     this.serviceUpdate
       .getAllWorkerUpdates(this.userCurrent.codeWorker)
-      .subscribe((x) => (this.tableWorkHours = x));
+      .subscribe((x) => {
+        this.tableWorkHours = x;
+        this.form = this.fb.group({
+          codeStore: this.fb.control("", [Validators.required]),
+          begginingTime: this.fb.control("", [Validators.required]),
+          exitingTime: this.fb.control("", [Validators.required]),
+          remarks: this.fb.control("", [Validators.required]),
+          result: this.fb.control("1", [Validators.required]),
+        });
+      });
   }
 
   ngOnInit() {
@@ -58,12 +67,6 @@ export class UpdatesComponent implements OnInit {
       this.storesArrey = x;
     });
     this.getUpdates();
-
-    // this.workHours=this.U.begg
-    // this.serviceUser.getUsers().subscribe(u=>{this.user=u;});
-    // this.serviceUser.getUsers().subscribe(x=>{
-    //   this.user=x;
-    //  });
   }
   btnEntry() {
     this.form.patchValue({
@@ -81,39 +84,29 @@ export class UpdatesComponent implements OnInit {
       exitingTime: new Date().toISOString().substring(0, 16),
     });
   }
+  //הוספת עדכון של כניסה ויציאה
   create() {
     const update = <Update>this.form.value;
     update.dateVisit = new Date(this.form.value.begginingTime);
+    //חישוב כניסה ויציאה
     var time = new Date(this.form.value.begginingTime);
     update.begginingTime =
       time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
-
     time = new Date(this.form.value.exitingTime);
     update.exitingTime =
       time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+
     update.codeWorker = this.userCurrent.codeWorker;
+    //בעת עדכון
     if (this.update && this.update.updatesId && this.update.updatesId !== 0) {
       update.updatesId = this.update.updatesId;
       this.serviceUpdate.updateUpdates(update).subscribe((x) => {
         this.getUpdates();
-        this.form = this.fb.group({
-          codeStore: this.fb.control("", [Validators.required]),
-          begginingTime: this.fb.control("", [Validators.required]),
-          exitingTime: this.fb.control("", [Validators.required]),
-          remarks: this.fb.control("", [Validators.required]),
-          result: this.fb.control("1", [Validators.required]),
-        });
-      }); //איך עושים שיעשה רק עדכון
+      });
+      //הוספה של עדכון חדש
     } else {
       this.serviceUpdate.createUpdate(update).subscribe((x) => {
         this.getUpdates();
-        this.form = this.fb.group({
-          codeStore: this.fb.control("", [Validators.required]),
-          begginingTime: this.fb.control("", [Validators.required]),
-          exitingTime: this.fb.control("", [Validators.required]),
-          remarks: this.fb.control("", [Validators.required]),
-          result: this.fb.control("1", [Validators.required]),
-        });
       });
     }
   }
